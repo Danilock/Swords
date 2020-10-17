@@ -9,12 +9,16 @@ public class PlayerController : MonoBehaviour
     public PlayerBaseState currentState;
     public PlayerIdleState idleState = new PlayerIdleState();
     public PlayerMovingState movingState = new PlayerMovingState();
+    public PlayerJumpState jumpState = new PlayerJumpState();
+    public PlayerAttackState attackState = new PlayerAttackState();
     #endregion
     #region Gameplay
-    [SerializeField] float startLife = 40f;
+    [SerializeField] float startHealth = 40f;
+    [SerializeField, Range(1, 2)] float speed;
     [HideInInspector] public CharacterController2D ch2D;
     [HideInInspector] public float horizontalMove;
     [HideInInspector] public Rigidbody2D rgb2D;
+    [HideInInspector] public PlayerAttackController attackController;
     #endregion
     #region Events
     [SerializeField] UnityEvent OnPlayerDead;
@@ -24,6 +28,7 @@ public class PlayerController : MonoBehaviour
     {
         rgb2D = GetComponent<Rigidbody2D>();
         ch2D = GetComponent<CharacterController2D>();
+        attackController = GetComponent<PlayerAttackController>();
 
         SetState(idleState);
     }
@@ -33,11 +38,16 @@ public class PlayerController : MonoBehaviour
         currentState.Update(this);
     }
 
+    private void FixedUpdate()
+    {
+        currentState.FixedUpdate(this);
+    }
+
     public void TakeDamage(float damage)
     {
-        startLife -= damage;
+        startHealth -= damage;
 
-        if(startLife <= 0f)
+        if(startHealth <= 0f)
         {
             OnPlayerDead.Invoke();
         }
@@ -45,6 +55,11 @@ public class PlayerController : MonoBehaviour
         {
             OnPlayerTakeDamage.Invoke();
         }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        currentState.OnCollisionEnter2D(this, collision);
     }
 
     /// <summary>
@@ -60,5 +75,18 @@ public class PlayerController : MonoBehaviour
 
         currentState = newState;
         newState.EnterState(this);
+    }
+
+    /// <summary>
+    /// Stablish the HorizontalMove variable the input value. Also, determines if the jump key is pressed
+    /// </summary>
+    public void PlayerInput()
+    {
+        horizontalMove = Input.GetAxisRaw("Horizontal") * speed;
+        if (Input.GetButtonDown("Jump"))
+        {
+           ch2D.Move(horizontalMove, false, true);
+            SetState(jumpState);
+        }
     }
 }
