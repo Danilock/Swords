@@ -11,9 +11,12 @@ public class PlayerController : MonoBehaviour
     public PlayerMovingState movingState = new PlayerMovingState();
     public PlayerJumpState jumpState = new PlayerJumpState();
     public PlayerAttackState attackState = new PlayerAttackState();
+    public PlayerDeadState deadState = new PlayerDeadState();
     #endregion
     #region Gameplay
     [SerializeField] float startHealth = 40f;
+    public float StartHealth { get { return startHealth; } private set { startHealth = value; } }
+    public float CurrentHealth { get; private set; }
     [SerializeField, Range(1, 2)] float speed;
     [HideInInspector] public CharacterController2D ch2D;
     [HideInInspector] public float horizontalMove;
@@ -24,11 +27,16 @@ public class PlayerController : MonoBehaviour
     [SerializeField] UnityEvent OnPlayerDead;
     [SerializeField] UnityEvent OnPlayerTakeDamage;
     #endregion
+    #region Animation
+    [HideInInspector] public Animator playerAnimator;
+    #endregion
     private void Start()
     {
         rgb2D = GetComponent<Rigidbody2D>();
         ch2D = GetComponent<CharacterController2D>();
         attackController = GetComponent<PlayerAttackController>();
+        playerAnimator = GetComponent<Animator>();
+        CurrentHealth = StartHealth;
 
         SetState(idleState);
     }
@@ -45,16 +53,15 @@ public class PlayerController : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        startHealth -= damage;
+        CurrentHealth -= damage;
 
-        if(startHealth <= 0f)
+        if(CurrentHealth <= 0f)
         {
             OnPlayerDead.Invoke();
+            SetState(deadState);
         }
-        else
-        {
-            OnPlayerTakeDamage.Invoke();
-        }
+        
+        OnPlayerTakeDamage.Invoke();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -83,10 +90,19 @@ public class PlayerController : MonoBehaviour
     public void PlayerInput()
     {
         horizontalMove = Input.GetAxisRaw("Horizontal") * speed;
+
         if (Input.GetButtonDown("Jump"))
         {
            ch2D.Move(horizontalMove, false, true);
             SetState(jumpState);
         }
+    }
+
+    /// <summary>
+    /// Set the player state to Idle inmediatly. (Use this in animations)
+    /// </summary>
+    public void SetIdleState()
+    {
+        SetState(idleState);
     }
 }

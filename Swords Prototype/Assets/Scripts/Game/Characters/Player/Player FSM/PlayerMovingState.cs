@@ -5,12 +5,12 @@ public class PlayerMovingState : PlayerBaseState
 {
     public override void EnterState(PlayerController player)
     {
-        //TODO: Walk Animation
+
     }
 
     public override void ExitState(PlayerController player)
     {
-        
+
     }
 
     public override void Update(PlayerController player)
@@ -19,13 +19,14 @@ public class PlayerMovingState : PlayerBaseState
 
         if (Input.GetButtonDown("Attack"))
         {
-            player.attackController.Attack();
+            player.SetState(player.attackState);
         }
     }
 
     public override void FixedUpdate(PlayerController player)
     {
         player.ch2D.Move(player.horizontalMove, false, false);
+        player.playerAnimator.SetFloat("Speed", Mathf.Abs(player.horizontalMove));
 
         if (player.rgb2D.velocity.magnitude <= 0.1f)
         {

@@ -7,6 +7,7 @@ public class PlayerIdleState : PlayerBaseState
     public override void EnterState(PlayerController player)
     {
         //TODO: Idle Animation by animator controller.
+        player.playerAnimator.SetBool("Attacking", false);
     }
 
     public override void ExitState(PlayerController player)
@@ -20,7 +21,6 @@ public class PlayerIdleState : PlayerBaseState
 
         if (Input.GetButtonDown("Attack"))
         {
-            player.attackController.Attack();
             player.SetState(player.attackState);
         }
     }
@@ -32,6 +32,7 @@ public class PlayerIdleState : PlayerBaseState
         //Detecting if player's velocity is greater than 0.01 in X axis to set the moving state
         if (player.rgb2D.velocity.magnitude > 0.1f)
         {
+            player.playerAnimator.SetFloat("Speed", Mathf.Abs(player.horizontalMove));
             player.SetState(player.movingState);
         }
     }

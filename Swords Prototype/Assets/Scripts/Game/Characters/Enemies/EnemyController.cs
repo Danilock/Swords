@@ -9,17 +9,13 @@ public class EnemyController : MonoBehaviour
     #endregion
     #region Enemy Stats
     public ScriptableEnemy enemyProfile;
-    float currentHealth;
-    float maxHealth;
+    [HideInInspector] public float currentHealth { get; private set; }
+    [HideInInspector] public float maxHealth { get; private set; }
     #endregion
     #region Gameplay
     Rigidbody2D rgb2D;
     PlayerController player;
     #endregion
-    private void OnEnable()
-    {
-        OnTakeDamage.AddListener(PushEnemy);
-    }
 
     private void Awake()
     {
