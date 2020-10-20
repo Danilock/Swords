@@ -58,12 +58,12 @@ public class PlayerController : MonoBehaviour
 
         if (CurrentHealth <= 0f)
         {
-            OnPlayerDead.Invoke();
+            OnPlayerDead?.Invoke();
             SetState(deadState);
         }
         else
         {
-            OnPlayerTakeDamage.Invoke();
+            OnPlayerTakeDamage?.Invoke();
             SetState(damagedState);
         }
     }

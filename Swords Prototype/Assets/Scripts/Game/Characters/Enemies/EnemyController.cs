@@ -47,12 +47,12 @@ public class EnemyController : MonoBehaviour
 
         if (currentHealth <= 0f)
         {
-            OnEnemyDead.Invoke();
+            OnEnemyDead?.Invoke();
         }
         else
         {
             SetEnemyState(takingDamageState);
-            OnTakeDamage.Invoke();
+            OnTakeDamage?.Invoke();
         }
     }
 
