@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     public PlayerJumpState jumpState = new PlayerJumpState();
     public PlayerAttackState attackState = new PlayerAttackState();
     public PlayerDeadState deadState = new PlayerDeadState();
+    public PlayerDamagedState damagedState = new PlayerDamagedState();
     #endregion
     #region Gameplay
     [SerializeField] float startHealth = 40f;
@@ -55,13 +56,16 @@ public class PlayerController : MonoBehaviour
     {
         CurrentHealth -= damage;
 
-        if(CurrentHealth <= 0f)
+        if (CurrentHealth <= 0f)
         {
             OnPlayerDead.Invoke();
             SetState(deadState);
         }
-        
-        OnPlayerTakeDamage.Invoke();
+        else
+        {
+            OnPlayerTakeDamage.Invoke();
+            SetState(damagedState);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -75,9 +79,9 @@ public class PlayerController : MonoBehaviour
     /// <param name="newState"></param>
     public void SetState(PlayerBaseState newState)
     {
-        if(newState != null)
+        if(currentState != null)
         {
-            newState.ExitState(this);
+            currentState.ExitState(this);
         }
 
         currentState = newState;

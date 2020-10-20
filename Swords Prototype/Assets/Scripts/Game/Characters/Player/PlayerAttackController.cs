@@ -6,15 +6,12 @@ public class PlayerAttackController : MonoBehaviour
 {
     [SerializeField] Transform attackAreaPosition;
     [SerializeField] Vector2 attackAreaSize;
-    PlayerController player;
-    float attackIndex = 0f;
 
-    private void Start()
-    {
-        player = GetComponent<PlayerController>();
-    }
-
-    public void Attack(float damage)
+    /// <summary>
+    /// Creates a overlapBox area and hits every enemy detected by certain damage.
+    /// </summary>
+    /// <param name="damage"></param>
+    public void MeleeAttack(float damage)
     {
         Collider2D[] enemies = Physics2D.OverlapBoxAll(attackAreaPosition.position, attackAreaSize, 0f, LayerMask.GetMask("Enemy"));
     
@@ -22,8 +19,6 @@ public class PlayerAttackController : MonoBehaviour
         {
             enemy.GetComponent<EnemyController>().TakeDamage(damage);
         }
-
-        player.playerAnimator.SetFloat("AttackIndex", 0);
     }
 
     private void OnDrawGizmos()

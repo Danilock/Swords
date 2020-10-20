@@ -6,8 +6,7 @@ public class PlayerIdleState : PlayerBaseState
 {
     public override void EnterState(PlayerController player)
     {
-        //TODO: Idle Animation by animator controller.
-        player.playerAnimator.SetBool("Attacking", false);
+
     }
 
     public override void ExitState(PlayerController player)
