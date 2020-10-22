@@ -6,6 +6,7 @@ public class EnemyController : MonoBehaviour
     #region Events
     [SerializeField] UnityEvent OnTakeDamage;
     [SerializeField] UnityEvent OnEnemyDead;
+    public UnityEvent OnNormalStateUpdate;
     #endregion
     #region Enemy Stats
     public ScriptableEnemy enemyProfile;
@@ -15,6 +16,7 @@ public class EnemyController : MonoBehaviour
     #region Gameplay
     Rigidbody2D rgb2D;
     PlayerController player;
+    [HideInInspector] public Animator enemyAnimator; //TODO: Animations.
     #endregion
     #region FSM
     public EnemyNormalState normalState = new EnemyNormalState();
@@ -34,6 +36,7 @@ public class EnemyController : MonoBehaviour
     private void Start()
     {
         rgb2D = GetComponent<Rigidbody2D>();
+        enemyAnimator = GetComponent<Animator>();
         player = FindObjectOfType<PlayerController>();
     }
     private void Update()
@@ -51,7 +54,7 @@ public class EnemyController : MonoBehaviour
         }
         else
         {
-            SetEnemyState(takingDamageState);
+            StopAllCoroutines();
             OnTakeDamage?.Invoke();
         }
     }
@@ -61,7 +64,7 @@ public class EnemyController : MonoBehaviour
     /// </summary>
     public void PushEnemy()
     {
-        rgb2D?.AddForce(new Vector2(Mathf.Sign(player.transform.localScale.x) * 1f, 1f), ForceMode2D.Impulse);
+        rgb2D?.AddForce(new Vector2(Mathf.Sign(player.transform.localScale.x) * 1.5f, 1.5f), ForceMode2D.Impulse);
     }
 
     public void DestroyMe()
@@ -69,6 +72,7 @@ public class EnemyController : MonoBehaviour
         Destroy(this.gameObject);
     }
 
+    #region Set States
     public void SetEnemyState(EnemyBaseState newState)
     {
         if (currentState != null)
@@ -95,4 +99,29 @@ public class EnemyController : MonoBehaviour
                 break;
         }
     }
+
+    public void SetNormalState()
+    {
+        SetEnemyState(normalState);
+    }
+    #endregion
+
+    #region Stun
+    /// <summary>
+    /// Starts the stunned corroutine.
+    /// </summary>
+    /// <param name="time"></param>
+    public void StunEnemy(float time)
+    {
+        StartCoroutine(Stunned(time));
+        enemyAnimator.SetBool("Stunned", true);
+    }
+
+    public IEnumerator Stunned(float time)
+    {
+        yield return new WaitForSeconds(time);
+        enemyAnimator.SetBool("Stunned", false);
+        SetEnemyState(normalState);
+    }
+    #endregion
 }

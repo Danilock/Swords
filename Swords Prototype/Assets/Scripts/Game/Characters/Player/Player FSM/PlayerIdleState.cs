@@ -22,6 +22,10 @@ public class PlayerIdleState : PlayerBaseState
         {
             player.SetState(player.attackState);
         }
+        else if(Input.GetButtonDown("Bow Attack"))
+        {
+            player.SetState(player.bowAttackState); 
+        }
     }
 
     public override void FixedUpdate(PlayerController player)

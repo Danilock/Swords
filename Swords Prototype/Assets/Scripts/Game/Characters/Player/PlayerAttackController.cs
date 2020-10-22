@@ -6,6 +6,15 @@ public class PlayerAttackController : MonoBehaviour
 {
     [SerializeField] Transform attackAreaPosition;
     [SerializeField] Vector2 attackAreaSize;
+    [SerializeField] Projectile arrowPrefab;
+    [SerializeField] Transform arrowPoint;//Poitn where the arrow will be instantiated
+    [SerializeField] float arrowDamage = 5f;
+    PlayerController player;
+
+    private void Start()
+    {
+        player = GetComponent<PlayerController>();
+    }
 
     /// <summary>
     /// Creates a overlapBox area and hits every enemy detected by certain damage.
@@ -19,6 +28,17 @@ public class PlayerAttackController : MonoBehaviour
         {
             enemy.GetComponent<EnemyController>().TakeDamage(damage);
         }
+    }
+
+    /// <summary>
+    /// Instantiate an arrow.
+    /// </summary>
+    public void InstantiateArrow()
+    {
+        player.rgb2D.AddForce(Vector2.right * -transform.localScale.x * 6f, ForceMode2D.Impulse);
+        Projectile arrow = Instantiate(arrowPrefab, arrowPoint.position, Quaternion.identity);
+        arrow.projectileDamage = arrowDamage;
+        arrow.gameObject.transform.localScale = gameObject.transform.localScale;
     }
 
     private void OnDrawGizmos()

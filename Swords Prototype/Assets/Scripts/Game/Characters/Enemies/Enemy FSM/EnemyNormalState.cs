@@ -15,6 +15,6 @@ public class EnemyNormalState : EnemyBaseState
 
     public override void Update(EnemyController enemy)
     {
-        
+        enemy.OnNormalStateUpdate.Invoke();
     }
 }

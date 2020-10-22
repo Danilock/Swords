@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     public PlayerAttackState attackState = new PlayerAttackState();
     public PlayerDeadState deadState = new PlayerDeadState();
     public PlayerDamagedState damagedState = new PlayerDamagedState();
+    public PlayerBowAttackState bowAttackState = new PlayerBowAttackState();
     #endregion
     #region Gameplay
     [SerializeField] float startHealth = 40f;
