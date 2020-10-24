@@ -11,7 +11,8 @@ public class PlayerJumpState : PlayerBaseState
 
     public override void ExitState(PlayerController player)
     {
-        collided = false; 
+        collided = false;
+        player.ch2D.AirControl = true;
         player.playerAnimator.SetBool("Jump", false);
     }
 
@@ -22,6 +23,15 @@ public class PlayerJumpState : PlayerBaseState
         if (player.rgb2D.velocity.y <= 0.1f && player.ch2D.m_Grounded && collided)
         {
             player.SetState(player.idleState);
+        }
+
+        //Don't let player continuing doin control air if detects a wall.
+        bool collidedWall = Physics2D.Linecast(player.transform.position,
+                                               player.transform.position + (player.transform.right * player.transform.localScale.x * .4f), 
+                                               LayerMask.GetMask("Wall")); 
+        if (collidedWall)
+        {
+            player.ch2D.AirControl = false;
         }
     }
 

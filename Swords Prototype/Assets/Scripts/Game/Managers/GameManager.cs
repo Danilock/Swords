@@ -9,12 +9,9 @@ public class GameManager : MonoBehaviour
     private static GameManager _instance;
     public static GameManager Instace { get { return _instance; } }
     #endregion
-    bool _inGame;
-    public bool InGame { get { return _inGame; } private set { _inGame = value; } }
-    bool _pause;
-    public bool Pause { get { return _pause; }  private set { _pause = value; } }
-    bool _canPauseGame;
-    public bool CanPauseGame { get { return _canPauseGame; } set { _canPauseGame = value; } }
+
+    public enum GameState { Paused, InGame, InMenu, Loading }
+    public static GameState currentGameState { get; private set; }
     private void Awake()
     {
         #region Initializing GameManager Singleton
@@ -28,31 +25,37 @@ public class GameManager : MonoBehaviour
             DontDestroyOnLoad(this);
         }
         #endregion
+        currentGameState = GameState.InGame;    
     }
 
-    /*private void Update()
+    private void Update()
     {
-        if (Input.GetButtonDown("Pause") && CanPauseGame)
+        if (Input.GetButtonDown("Pause"))
         {
-            if (!Pause) { PauseGame(); }
+            if(currentGameState == GameState.InGame) { PauseGame(); }
             else { ResumeGame(); }
         }
-    }*/
+    }
 
     void PauseGame()
     {
-        Pause = true;
+        currentGameState = GameState.Paused;
         Time.timeScale = 0f;
     }
 
     void ResumeGame()
     {
-        Pause = false;
+        currentGameState = GameState.InGame;
         Time.timeScale = 1f;   
     }
 
     public static void RestartLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    private void OnApplicationFocus(bool focus)
+    {
+        SendMessage(focus ? "ResumeGame" : "PauseGame");
     }
 }

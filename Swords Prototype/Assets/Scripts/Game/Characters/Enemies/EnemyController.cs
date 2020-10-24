@@ -16,7 +16,7 @@ public class EnemyController : MonoBehaviour
     #region Gameplay
     Rigidbody2D rgb2D;
     PlayerController player;
-    [HideInInspector] public Animator enemyAnimator; //TODO: Animations.
+    [HideInInspector] public Animator enemyAnimator; 
     #endregion
     #region FSM
     public EnemyNormalState normalState = new EnemyNormalState();

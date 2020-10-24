@@ -45,12 +45,17 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        currentState.Update(this);
+        if (GameManager.currentGameState == GameManager.GameState.InGame) {
+            currentState.Update(this);
+        }
     }
 
     private void FixedUpdate()
     {
-        currentState.FixedUpdate(this);
+        if (GameManager.currentGameState == GameManager.GameState.InGame)
+        {
+            currentState.FixedUpdate(this);
+        }
     }
 
     public void TakeDamage(float damage)
@@ -71,7 +76,9 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        currentState.OnCollisionEnter2D(this, collision);
+        if (GameManager.currentGameState == GameManager.GameState.InGame) { 
+            currentState.OnCollisionEnter2D(this, collision);
+        }
     }
 
     /// <summary>
@@ -109,5 +116,11 @@ public class PlayerController : MonoBehaviour
     public void SetIdleState()
     {
         SetState(idleState);
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.blue * .5f;
+        Gizmos.DrawLine(transform.position, transform.position + (transform.right * transform.localScale.x * .4f));
     }
 }
