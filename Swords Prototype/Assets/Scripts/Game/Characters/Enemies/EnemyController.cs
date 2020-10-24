@@ -64,12 +64,18 @@ public class EnemyController : MonoBehaviour
     /// </summary>
     public void PushEnemy()
     {
-        rgb2D?.AddForce(new Vector2(Mathf.Sign(player.transform.localScale.x) * 1.5f, 1.5f), ForceMode2D.Impulse);
+        rgb2D?.AddForce(new Vector2(Mathf.Sign(player.transform.localScale.x) * 1f, 1.5f), ForceMode2D.Impulse);
     }
 
     public void DestroyMe()
     {
         Destroy(this.gameObject);
+    }
+
+    public void KillWaveInstance()
+    {
+        EnemyWaveController waveController = FindObjectOfType<EnemyWaveController>();
+        waveController.EnemyKilled(gameObject.name);
     }
 
     #region Set States

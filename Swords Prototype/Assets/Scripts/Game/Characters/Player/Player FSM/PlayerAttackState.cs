@@ -23,6 +23,9 @@ public class PlayerAttackState : PlayerBaseState
         else
             attackIndex++;
 
+        player.StopAllCoroutines();
+        player.StartCoroutine(ResetAttackIndex());
+
     }
 
     public override void ExitState(PlayerController player) 
@@ -35,4 +38,14 @@ public class PlayerAttackState : PlayerBaseState
 
     public override void OnCollisionEnter2D(PlayerController player, Collision2D col) { }
     public override void Update(PlayerController player) { }
+
+    /// <summary>
+    /// Restart the attack index when the player is out of combat for 3 seconds.
+    /// </summary>
+    /// <returns></returns>
+    IEnumerator ResetAttackIndex()
+    {
+        yield return new WaitForSeconds(3f);
+        attackIndex = 0;
+    }
 }

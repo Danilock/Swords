@@ -45,7 +45,7 @@ public class EnemyIA : MonoBehaviour
     /// </summary>
     public void MoveEnemy()
     {
-        if (isStoped)
+        if (isStoped || Vector2.Distance(detectedTarget.transform.position, transform.position) < .6f)
             return;
         direction = Mathf.Sign(detectedTarget.transform.position.x - transform.position.x);
         ch2D.Move(direction, false, false); 

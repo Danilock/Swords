@@ -3,6 +3,7 @@ using System.Collections;
 
 public class EnemyTakingDamageState : EnemyBaseState
 {
+    //TODO: Enemy dodge when taking damage.
     public override void EnterState(EnemyController enemy)
     {
         
@@ -10,7 +11,7 @@ public class EnemyTakingDamageState : EnemyBaseState
 
     public override void ExitState(EnemyController enemy)
     {
-        Debug.Log("Exiting from Damaged state");
+
     }
 
     public override void Update(EnemyController enemy)

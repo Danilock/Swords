@@ -120,8 +120,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   force: 4
-  projectileDamage: 0
-  DoDamageTo: 1
+  projectileDamage: 20
+  DoDamageTo: 0
 --- !u!61 &4685037080711354113
 BoxCollider2D:
   m_ObjectHideFlags: 0

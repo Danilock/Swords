@@ -35,7 +35,7 @@ public class PlayerAttackController : MonoBehaviour
     /// </summary>
     public void InstantiateArrow()
     {
-        player.rgb2D.AddForce(Vector2.right * -transform.localScale.x * 6f, ForceMode2D.Impulse);
+        player.rgb2D.AddForce(Vector2.right * -transform.localScale.x * 3f, ForceMode2D.Impulse);
         Projectile arrow = Instantiate(arrowPrefab, arrowPoint.position, Quaternion.identity);
         arrow.projectileDamage = arrowDamage;
         arrow.gameObject.transform.localScale = gameObject.transform.localScale;
