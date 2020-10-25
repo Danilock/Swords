@@ -8,7 +8,7 @@ public class Projectile : MonoBehaviour
     [SerializeField] float force = 2f;
     [SerializeField] public float projectileDamage = 15f;
     [SerializeField] doDamageTo DoDamageTo = doDamageTo.Enemy; 
-    enum doDamageTo { Enemy, Player, Trap }
+    enum doDamageTo { Enemy, Player }
     Rigidbody2D projectileRgb;
     // Start is called before the first frame update
     void Start()
@@ -32,10 +32,7 @@ public class Projectile : MonoBehaviour
         {
             collision.gameObject.GetComponent<PlayerController>().TakeDamage(projectileDamage);
         }
-        //else if(collision.gameObject.CompareTag("Trap") && DoDamageTo == doDamageTo.Trap)
-        //{
-            //TODO: Damage Traps.
-        //}
+
         Destroy(gameObject);
     }
 

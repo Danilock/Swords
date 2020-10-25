@@ -22,6 +22,7 @@ public class EnemyController : MonoBehaviour
     public EnemyNormalState normalState = new EnemyNormalState();
     public EnemyTakingDamageState takingDamageState = new EnemyTakingDamageState();
     public EnemyDeadState deadState = new EnemyDeadState();
+    public EnemyAttackState attackState = new EnemyAttackState();
     public EnemyBaseState currentState { get; private set; }
     #endregion
 
@@ -101,6 +102,9 @@ public class EnemyController : MonoBehaviour
                 SetEnemyState(takingDamageState);
                 break;
             case 3:
+                SetEnemyState(attackState);
+                break;
+            case 4:
                 SetEnemyState(deadState);
                 break;
         }
