@@ -6,7 +6,7 @@ public class PlayerIdleState : PlayerBaseState
 {
     public override void EnterState(PlayerController player)
     {
-
+        player.rgb2D.velocity = new Vector2(0f, 0f);
     }
 
     public override void ExitState(PlayerController player)

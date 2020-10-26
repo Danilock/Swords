@@ -14,7 +14,7 @@ public class PlayerHealthBar : MonoBehaviour
     private void Start()
     {
         player = FindObjectOfType<PlayerController>();
-        healthSlider = GetComponentInChildren<Slider>();
+        healthSlider = GetComponent<Slider>();
 
         healthSlider.maxValue = player.StartHealth;
         healthSlider.value = player.StartHealth;

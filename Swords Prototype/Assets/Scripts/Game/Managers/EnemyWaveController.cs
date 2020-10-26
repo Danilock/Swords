@@ -5,15 +5,6 @@ using UnityEngine;
 public class EnemyWaveController : MonoBehaviour
 {
     [SerializeField] EnemyWave[] waves;
-    private void Start()
-    {
-        
-    }
-
-    public void DebugMessage(string message)
-    {
-        Debug.Log(message);
-    }
 
     /// <summary>
     /// Evaluates every wave list and check if the name specified in the parameter matchs one of the elements.

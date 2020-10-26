@@ -6,8 +6,6 @@ using UnityEngine.Events;
 [RequireComponent(typeof(CharacterController2D))]
 public class EnemyIA : MonoBehaviour
 {
-    enum IAType { PatrolThenFollow, IdleThenFollow }
-    [SerializeField] IAType iaType;
     #region Events
     [SerializeField] public UnityEvent OnDetectTarget;
     #endregion

@@ -8,6 +8,7 @@ TagManager:
   - HUD
   - Bow
   - Wall
+  - Trap
   layers:
   - Default
   - TransparentFX
@@ -22,7 +23,7 @@ TagManager:
   - Enemy
   - Weapon
   - Wall
-  - 
+  - No Ground
   - 
   - 
   - 

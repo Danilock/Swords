@@ -7,11 +7,13 @@ public class PlayerJumpState : PlayerBaseState
     public override void EnterState(PlayerController player)
     {
         player.playerAnimator.SetBool("Jump", true);
+        player.ch2D.CrouchSpeed /= 2;
     }
 
     public override void ExitState(PlayerController player)
     {
         collided = false;
+        player.ch2D.CrouchSpeed *= 2;
         player.ch2D.AirControl = true;
         player.playerAnimator.SetBool("Jump", false);
     }
