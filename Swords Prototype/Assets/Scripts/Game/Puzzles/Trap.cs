@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -6,16 +7,23 @@ using UnityEngine;
 public class Trap : MonoBehaviour
 {
     [SerializeField] float trapDamage = 3f;
-    [SerializeField] bool hasAnimation, destroyWhenDesactivate = false;
+    [SerializeField] bool hasAnimation, destroyWhenDesactivate = false, canPushPlayer = false, inParent = false;
+    [SerializeField] Vector2 force;
+    [SerializeField] GameObject parent;
     Collider2D trapCollider;
     PlayerController player;
-    SpriteRenderer sprite;//TODO: Delete this weirdy variable.
+    Animator trapAnimator, parentAnimator;
 
     private void Start()
     {
         trapCollider = GetComponent<Collider2D>();
         player = FindObjectOfType<PlayerController>();
-        sprite = GetComponent<SpriteRenderer>();
+        trapAnimator = GetComponent<Animator>();
+
+        if(parent != null)
+        {
+            parentAnimator = parent.GetComponent<Animator>();
+        }
     }
 
     /// <summary>
@@ -40,21 +48,47 @@ public class Trap : MonoBehaviour
         SetupDesactivating();
         yield return new WaitForSeconds(timeToActicate);
         trapCollider.enabled = true;
-        sprite.enabled = true;
+        if (hasAnimation)
+        {
+            if (inParent)
+            {
+                parentAnimator.SetBool("hideTrap", false);
+                parent.GetComponent<Collider2D>().enabled = true;
+                trapCollider.enabled = true;
+            }
+            else
+            {
+                trapAnimator.SetBool("hideTrap", false);
+            }
+        }
     }
 
     void SetupDesactivating()
     {
         trapCollider.enabled = false;
-        sprite.enabled = false;
-        if (hasAnimation)
+        if(destroyWhenDesactivate)
         {
-            //TODO: Set trap animation.
+            StopAllCoroutines();
+            DestroyTrap();
         }
-        else if(destroyWhenDesactivate)
+        else if (hasAnimation)
         {
-            Destroy(gameObject);
+            if (inParent)
+            {
+                parentAnimator.SetBool("hideTrap", true);
+                parent.GetComponent<Collider2D>().enabled = false;
+                trapCollider.enabled = false;
+            }
+            else
+            {
+                trapAnimator.SetBool("hideTrap", true);
+            }
         }
+    }
+
+    void DestroyTrap()
+    {
+        Destroy(gameObject);
     }
 
     #region Physics
@@ -63,6 +97,8 @@ public class Trap : MonoBehaviour
         if(collision.gameObject.tag == "Player")
         {
             player.TakeDamage(trapDamage);
+            if (canPushPlayer)
+                player.rgb2D.AddForce(force, ForceMode2D.Impulse);
         }
     }
 
@@ -71,6 +107,8 @@ public class Trap : MonoBehaviour
         if(collision.gameObject.tag == "Player")
         {
             player.TakeDamage(trapDamage);
+            if(canPushPlayer)
+                player.rgb2D.AddForce(force, ForceMode2D.Impulse);
         }
     }
     #endregion

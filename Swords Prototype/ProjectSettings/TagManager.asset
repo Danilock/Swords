@@ -46,3 +46,27 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 2142160043
+    locked: 0
+  - name: Decorations
+    uniqueID: 1699239531
+    locked: 0
+  - name: Environment
+    uniqueID: 2761884731
+    locked: 0
+  - name: Decorations Over Environment
+    uniqueID: 1910501173
+    locked: 0
+  - name: UI
+    uniqueID: 1657208023
+    locked: 0
+  - name: Weapons
+    uniqueID: 629591965
+    locked: 0
+  - name: Characters
+    uniqueID: 2050451897
+    locked: 0
+  - name: Decorations/Environment Over Character
+    uniqueID: 716083745
+    locked: 0

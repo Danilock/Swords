@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
 
     public enum GameState { Paused, InGame, InMenu, Loading }
     public static GameState currentGameState { get; private set; }
+
+    PlayerController player;
     private void Awake()
     {
         #region Initializing GameManager Singleton
@@ -25,7 +27,8 @@ public class GameManager : MonoBehaviour
             DontDestroyOnLoad(this);
         }
         #endregion
-        currentGameState = GameState.InGame;    
+        currentGameState = GameState.InGame;
+        player = FindObjectOfType<PlayerController>();
     }
 
     private void Update()
@@ -40,12 +43,16 @@ public class GameManager : MonoBehaviour
     void PauseGame()
     {
         currentGameState = GameState.Paused;
+        if (player)
+            player.playerAnimator.speed = 0f;
         Time.timeScale = 0f;
     }
 
     void ResumeGame()
     {
         currentGameState = GameState.InGame;
+        if (player)
+            player.playerAnimator.speed = 1f;
         Time.timeScale = 1f;   
     }
 

@@ -6,7 +6,7 @@ public class PlayerIdleState : PlayerBaseState
 {
     public override void EnterState(PlayerController player)
     {
-        player.rgb2D.velocity = new Vector2(0f, 0f);
+        //player.rgb2D.velocity = new Vector2(0f, 0f);
     }
 
     public override void ExitState(PlayerController player)
@@ -18,11 +18,11 @@ public class PlayerIdleState : PlayerBaseState
     {
         player.PlayerInput();
 
-        if (Input.GetButtonDown("Attack"))
+        if (Input.GetButtonDown("Attack") && player.attackController.canAttack)
         {
             player.SetState(player.attackState);
         }
-        else if(Input.GetButtonDown("Bow Attack"))
+        else if(Input.GetButtonDown("Bow Attack") && player.attackController.canAttack)
         {
             player.SetState(player.bowAttackState); 
         }

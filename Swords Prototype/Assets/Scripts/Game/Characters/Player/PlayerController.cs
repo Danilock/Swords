@@ -32,7 +32,7 @@ public class PlayerController : MonoBehaviour
     #region Animation
     [HideInInspector] public Animator playerAnimator;
     #endregion
-    private void Start()
+    private void Awake()
     {
         rgb2D = GetComponent<Rigidbody2D>();
         ch2D = GetComponent<CharacterController2D>();
@@ -118,9 +118,19 @@ public class PlayerController : MonoBehaviour
         SetState(idleState);
     }
 
+    public bool CollidedWall()
+    {
+        bool linecastDetectWall = Physics2D.Linecast(transform.position,
+                                               transform.position + (transform.right * transform.localScale.x * .25f),
+                                               LayerMask.GetMask("Wall"));
+
+        return linecastDetectWall;
+    }
+
     private void OnDrawGizmos()
     {
+        //Drawing gizmos for raycastLine to detect walls(this is used to stop player air movement when detect the wall)
         Gizmos.color = Color.blue * .5f;
-        Gizmos.DrawLine(transform.position, transform.position + (transform.right * transform.localScale.x * .4f));
+        Gizmos.DrawLine(transform.position, transform.position + (transform.right * transform.localScale.x * .25f));
     }
 }

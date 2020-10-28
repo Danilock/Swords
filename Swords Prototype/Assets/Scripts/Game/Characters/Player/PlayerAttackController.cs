@@ -10,6 +10,7 @@ public class PlayerAttackController : MonoBehaviour
     [SerializeField] Transform arrowPoint;//Poitn where the arrow will be instantiated
     [SerializeField] float arrowDamage = 5f;
     [SerializeField] float baseDamage = 5f;//Base damage that will modify all attacks amount of damage.
+    [SerializeField] public bool canAttack = true;
     PlayerController player;
 
     private void Start()

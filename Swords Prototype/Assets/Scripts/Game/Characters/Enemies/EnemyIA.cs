@@ -8,15 +8,17 @@ public class EnemyIA : MonoBehaviour
 {
     #region Events
     [SerializeField] public UnityEvent OnDetectTarget;
+    [SerializeField] UnityEvent OnExitTarget;
     #endregion
     #region Behaviour
     [SerializeField] Vector2 detectTargetAreaSize = new Vector3(4f, 4f);
     [SerializeField] LayerMask targetLayer;
+    [SerializeField] float reachDistance = .3f;
     EnemyController enemy;
     CharacterController2D ch2D;
     [HideInInspector] public Collider2D detectedTarget;
     float direction;
-    bool isStoped;
+    bool isStoped, targetExit; //Target exit: used to avoid call the OnExitTarget every frame and just once.
     #endregion
 
     private void Start()
@@ -34,7 +36,16 @@ public class EnemyIA : MonoBehaviour
 
         if (detectedTarget)
         {
+            targetExit = true;
             OnDetectTarget.Invoke();
+        }
+        else
+        {
+            if (targetExit)
+            {
+                OnExitTarget.Invoke();
+                targetExit = false;
+            }
         }
     }
 
@@ -43,7 +54,7 @@ public class EnemyIA : MonoBehaviour
     /// </summary>
     public void MoveEnemy()
     {
-        if (isStoped || Vector2.Distance(detectedTarget.transform.position, transform.position) < .3f)
+        if (isStoped || Vector2.Distance(detectedTarget.transform.position, transform.position) < reachDistance)
             return;
         direction = Mathf.Sign(detectedTarget.transform.position.x - transform.position.x);
         ch2D.Move(direction, false, false); 

@@ -28,10 +28,7 @@ public class PlayerJumpState : PlayerBaseState
         }
 
         //Don't let player continuing doin control air if detects a wall.
-        bool collidedWall = Physics2D.Linecast(player.transform.position,
-                                               player.transform.position + (player.transform.right * player.transform.localScale.x * .4f), 
-                                               LayerMask.GetMask("Wall")); 
-        if (collidedWall)
+        if (player.CollidedWall())
         {
             player.ch2D.AirControl = false;
         }

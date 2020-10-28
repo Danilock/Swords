@@ -17,13 +17,17 @@ public class PlayerMovingState : PlayerBaseState
     {
         player.PlayerInput();
 
-        if (Input.GetButtonDown("Attack"))
+        if (Input.GetButtonDown("Attack") && player.attackController.canAttack)
         {
             player.SetState(player.attackState);
         }
-        else if(Input.GetButtonDown("Bow Attack"))
+        else if (Input.GetButtonDown("Bow Attack") && player.attackController.canAttack)
         {
             player.SetState(player.bowAttackState);
+        }
+        else if (player.CollidedWall())
+        {
+            player.SetState(player.idleState);
         }
     }
 

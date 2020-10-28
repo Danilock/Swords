@@ -122,7 +122,7 @@ AnimationClip:
     floatParameter: 60
     intParameter: 0
     messageOptions: 0
-  - time: 0.9166667
+  - time: 0.8666667
     functionName: SetIdleState
     data: 
     objectReferenceParameter: {fileID: 0}

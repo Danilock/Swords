@@ -5,13 +5,19 @@ using UnityEngine.Events;
 
 public class EnemyAttack : MonoBehaviour
 {
+    #region Attack Area
     [SerializeField] Vector2 attackAreaSize = new Vector2(2f, 2f);
     [SerializeField] Transform attackAreaPoint;
-    [SerializeField] UnityEvent OnDetectPlayer;
-    bool canAttack = true;
-    float attackCooldown;
+    #endregion
+    #region Enemy and player scripts
     EnemyController enemy;
     PlayerController player;
+    #endregion
+    #region Cooldown and canAttack
+    bool canAttack = true;
+    float attackCooldown;
+    #endregion
+    [SerializeField] UnityEvent OnDetectPlayer;
     private void Start()
     {
         player = FindObjectOfType<PlayerController>();

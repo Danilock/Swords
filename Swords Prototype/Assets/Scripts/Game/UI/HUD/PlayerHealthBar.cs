@@ -10,6 +10,8 @@ public class PlayerHealthBar : MonoBehaviour
 {
     PlayerController player;
     Slider healthSlider;
+    [SerializeField] Image fill;
+    [SerializeField] Gradient fillGradient;
 
     private void Start()
     {
@@ -19,6 +21,7 @@ public class PlayerHealthBar : MonoBehaviour
         healthSlider.maxValue = player.StartHealth;
         healthSlider.value = player.StartHealth;
 
+        fill.color = fillGradient.Evaluate(1f);
     }
 
     /// <summary>
@@ -27,5 +30,7 @@ public class PlayerHealthBar : MonoBehaviour
     public void UpdatePlayerHealthBar()
     {
         healthSlider.value = player.CurrentHealth;
+
+        fill.color = fillGradient.Evaluate(healthSlider.normalizedValue);
     }
 }

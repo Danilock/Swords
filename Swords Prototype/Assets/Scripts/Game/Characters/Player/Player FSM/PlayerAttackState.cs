@@ -30,9 +30,9 @@ public class PlayerAttackState : PlayerBaseState
 
     public override void ExitState(PlayerController player) 
     {
-        entered = false;
-        player.playerAnimator.SetBool("Attacking", false);
         Time.timeScale = 1f;
+        player.playerAnimator.SetBool("Attacking", false);
+        entered = false;
     }
     public override void FixedUpdate(PlayerController player) { }
 
