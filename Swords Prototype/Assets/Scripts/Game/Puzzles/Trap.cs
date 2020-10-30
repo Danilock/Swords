@@ -63,6 +63,9 @@ public class Trap : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Desactivates the trap and checks if it has animation or not.
+    /// </summary>
     void SetupDesactivating()
     {
         trapCollider.enabled = false;

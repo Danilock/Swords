@@ -30,6 +30,8 @@ public class InteractableObject : MonoBehaviour
         isDesactivated = false;
     }
 
+    public void SetDesactivate(bool desactivateState) => isDesactivated = desactivateState;
+
     #region Physics
     private void OnTriggerEnter2D(Collider2D other)
     {
