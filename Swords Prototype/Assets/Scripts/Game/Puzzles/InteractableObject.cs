@@ -9,13 +9,15 @@ public class InteractableObject : MonoBehaviour
     [SerializeField] bool canBeReactivated;
     [SerializeField] float timeToReactivate = 2f;
     [SerializeField] UnityEvent OnInteractWithPlayer;
-    bool isDesactivated = false, collidedWithPlayer;
-
+    #region Can Interact
+    [SerializeField] bool canInteract = true, collidedWithPlayer;
+    public bool CanInteract { get { return canInteract; } set { canInteract = value; } }
+    #endregion
     private void Update()
     {
-        if (Input.GetButtonDown("Interact") && collidedWithPlayer && !isDesactivated)
+        if (Input.GetButtonDown("Interact") && collidedWithPlayer && CanInteract)
         {
-            isDesactivated = true;
+            canInteract = false;
             if (canBeReactivated)
             {
                 StartCoroutine(Reactivate());
@@ -27,12 +29,9 @@ public class InteractableObject : MonoBehaviour
     IEnumerator Reactivate()
     {
         yield return new WaitForSeconds(timeToReactivate);
-        isDesactivated = false;
+        CanInteract = false;
     }
-
-    public void SetDesactivate(bool desactivateState) => isDesactivated = desactivateState;
-
-    #region Physics
+    #region Physics with player interactions
     private void OnTriggerEnter2D(Collider2D other)
     {
         if(other.gameObject.tag == "Player")

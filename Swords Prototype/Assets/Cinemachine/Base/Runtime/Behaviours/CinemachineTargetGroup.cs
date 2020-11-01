@@ -1,6 +1,8 @@
 using UnityEngine;
 using System;
 using Cinemachine.Utility;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Cinemachine
 {
@@ -170,6 +172,7 @@ namespace Cinemachine
             Vector3 r = b.extents;
             m_lastRadius = Mathf.Max(r.x, Mathf.Max(r.y, r.z));
             return b;
+
         }
 
         Vector3 CalculateAveragePosition(out float averageWeight)
@@ -265,5 +268,22 @@ namespace Cinemachine
                     break;
             }
         }
+
+        /// <summary>
+        /// Adds a target to the list with a radius of 0 and wight of 1.
+        /// </summary>
+        /// <param name="target"></param>
+        public void AddTarget(Transform target)
+        {
+            List<Target> copyTargetsList = m_Targets.ToList<Target>();
+            Target newTarget;
+            newTarget.target = target;
+            newTarget.radius = 0;
+            newTarget.weight = 1;
+            copyTargetsList.Add(newTarget);
+            m_Targets = copyTargetsList.ToArray();
+        }
+
+        //TODO: Remove targets.
     }
 }
