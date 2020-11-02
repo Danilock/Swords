@@ -44,6 +44,8 @@ public class PlayerAttackController : MonoBehaviour
         arrow.gameObject.transform.localScale = gameObject.transform.localScale;
     }
 
+    public void ModifyBaseDamage(float additiveValue) => baseDamage = additiveValue;
+
     private void OnDrawGizmos()
     {
         if (attackAreaPosition == null)

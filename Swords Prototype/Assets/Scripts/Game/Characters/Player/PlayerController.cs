@@ -16,14 +16,11 @@ public class PlayerController : MonoBehaviour
     public PlayerBowAttackState bowAttackState = new PlayerBowAttackState();
     #endregion
     #region Gameplay
-    [SerializeField] float startHealth = 40f;
-    public float StartHealth { get { return startHealth; } private set { startHealth = value; } }
-    public float CurrentHealth { get; private set; }
-    [SerializeField, Range(1, 2)] float speed;
     [HideInInspector] public CharacterController2D ch2D;
     [HideInInspector] public float horizontalMove;
     [HideInInspector] public Rigidbody2D rgb2D;
     [HideInInspector] public PlayerAttackController attackController;
+    [HideInInspector] public PlayerHealthBar healthBar;
     #endregion
     #region Events
     [SerializeField] UnityEvent OnPlayerDead;
@@ -32,12 +29,24 @@ public class PlayerController : MonoBehaviour
     #region Animation
     [HideInInspector] public Animator playerAnimator;
     #endregion
+
+    #region Stats
+
+    [SerializeField] float startHealth = 40f;
+    public float StartHealth { get => startHealth;
+        private set => startHealth = value;
+    }
+    public float CurrentHealth { get; private set; }
+    [SerializeField, Range(1, 2)] float speed;
+
+    #endregion
     private void Awake()
     {
         rgb2D = GetComponent<Rigidbody2D>();
         ch2D = GetComponent<CharacterController2D>();
         attackController = GetComponent<PlayerAttackController>();
         playerAnimator = GetComponent<Animator>();
+        healthBar = FindObjectOfType<PlayerHealthBar>();
         CurrentHealth = StartHealth;
 
         SetState(idleState);
@@ -61,7 +70,7 @@ public class PlayerController : MonoBehaviour
     public void TakeDamage(float damage)
     {
         CurrentHealth -= damage;
-
+        healthBar.UpdatePlayerHealthBar();
         if (CurrentHealth <= 0f)
         {
             OnPlayerDead?.Invoke();
@@ -125,6 +134,22 @@ public class PlayerController : MonoBehaviour
                                                LayerMask.GetMask("Wall"));
 
         return linecastDetectWall;
+    }
+
+    /// <summary>
+    /// Regenerates player life by "regenerationRate" and updates player's Health Bar.
+    /// </summary>
+    /// <param name="regenerationRate"></param>
+    public void RegenerateLife(float regenerationRate)
+    {
+        CurrentHealth += regenerationRate * Time.deltaTime;
+        healthBar.UpdatePlayerHealthBar();
+    }
+
+    public void SetLife(float amount)
+    {
+        CurrentHealth = amount;
+        healthBar.UpdatePlayerHealthBar();
     }
 
     private void OnDrawGizmos()

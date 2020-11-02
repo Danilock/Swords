@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEditor;
 using UnityEngine.Events;
 public class EnemyController : MonoBehaviour
 {
@@ -77,6 +78,11 @@ public class EnemyController : MonoBehaviour
     {
         EnemyWaveController waveController = FindObjectOfType<EnemyWaveController>();
         waveController.EnemyKilled(gameObject.name);
+    }
+
+    public void DropItem(Item itemToDrop)
+    {
+        Item instance = Instantiate(itemToDrop, transform.position, Quaternion.identity);
     }
 
     #region Set States
