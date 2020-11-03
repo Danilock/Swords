@@ -47,6 +47,7 @@ public class PlayerController : MonoBehaviour
         attackController = GetComponent<PlayerAttackController>();
         playerAnimator = GetComponent<Animator>();
         healthBar = FindObjectOfType<PlayerHealthBar>();
+        GameManager.player = this;
         CurrentHealth = StartHealth;
 
         SetState(idleState);

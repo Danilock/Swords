@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     public enum GameState { Paused, InGame, InMenu, Loading }
     public static GameState currentGameState { get; private set; }
 
-    PlayerController player;
+    public static PlayerController player;
     private void Awake()
     {
         #region Initializing GameManager Singleton
@@ -29,7 +29,6 @@ public class GameManager : MonoBehaviour
         }
         #endregion
         currentGameState = GameState.InGame;
-        player = FindObjectOfType<PlayerController>();
     }
 
     private void Update()
@@ -66,4 +65,13 @@ public class GameManager : MonoBehaviour
     {
         SendMessage(focus ? "ResumeGame" : "PauseGame");
     }
+
+    #region Set Game State
+    public void SetMenuState() => currentGameState = GameState.InMenu;
+
+    public void SetLoadingState() => currentGameState = GameState.Loading;
+
+    public void SetInGameState() => currentGameState = GameState.InGame;
+    public void SetPauseState() => currentGameState = GameState.Paused;
+    #endregion
 }

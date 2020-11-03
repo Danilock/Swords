@@ -6,7 +6,7 @@ public class EnemyController : MonoBehaviour
 {
     #region Events
     [SerializeField] UnityEvent OnTakeDamage;
-    [SerializeField] UnityEvent OnEnemyDead;
+    public UnityEvent OnEnemyDead;
     public UnityEvent OnNormalStateUpdate;
     #endregion
     #region Enemy Stats

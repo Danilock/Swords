@@ -177,7 +177,11 @@
             </e>
             <e p="Events" t="Include">
               <e p="Event_OnCollisionEnter2D.cs" t="Include" />
+              <e p="Event_OnCollisionExit2D.cs" t="Include" />
+              <e p="Event_OnStart.cs" t="Include" />
               <e p="Event_OnTriggerEnter2D.cs" t="Include" />
+              <e p="Event_OnTriggerExit2D.cs" t="Include" />
+              <e p="Event_OnUpdate.cs" t="Include" />
             </e>
             <e p="Items" t="Include">
               <e p="Item.cs" t="Include" />
@@ -186,17 +190,22 @@
               <e p="LerpMovement.cs" t="Include" />
             </e>
             <e p="Managers" t="Include">
+              <e p="CoinManager.cs" t="Include" />
               <e p="EnemyWave.cs" t="Include" />
               <e p="EnemyWaveController.cs" t="Include" />
               <e p="GameManager.cs" t="Include" />
             </e>
             <e p="Puzzles" t="Include">
+              <e p="Coins" t="Include">
+                <e p="Coin.cs" t="Include" />
+              </e>
               <e p="InteractableObject.cs" t="Include" />
               <e p="Trap.cs" t="Include" />
             </e>
             <e p="UI" t="Include">
               <e p="EnemyHealthBar.cs" t="Include" />
               <e p="HUD" t="Include">
+                <e p="CoinsUI.cs" t="Include" />
                 <e p="PlayerHealthBar.cs" t="Include" />
                 <e p="PlayerHealthKitBar.cs" t="Include" />
               </e>

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events; 
@@ -14,6 +15,7 @@ public class EnemyIA : MonoBehaviour
     [SerializeField] Vector2 detectTargetAreaSize = new Vector3(4f, 4f);
     [SerializeField] LayerMask targetLayer;
     [SerializeField] float reachDistance = .3f;
+    [SerializeField] private bool canJump = false;
     EnemyController enemy;
     CharacterController2D ch2D;
     [HideInInspector] public Collider2D detectedTarget;
@@ -83,6 +85,14 @@ public class EnemyIA : MonoBehaviour
     public void setWalkAnimation(bool state)
     {
         enemy.enemyAnimator.SetBool("Walking", state);
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Jumper") && canJump)
+        {
+            ch2D.Move(direction, false, true);
+        }
     }
 
     private void OnDrawGizmos()

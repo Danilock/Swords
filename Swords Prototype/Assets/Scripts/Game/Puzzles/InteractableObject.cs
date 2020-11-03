@@ -29,7 +29,7 @@ public class InteractableObject : MonoBehaviour
     IEnumerator Reactivate()
     {
         yield return new WaitForSeconds(timeToReactivate);
-        CanInteract = false;
+        CanInteract = true;
     }
     #region Physics with player interactions
     private void OnTriggerEnter2D(Collider2D other)
