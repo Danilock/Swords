@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     public PlayerDeadState deadState = new PlayerDeadState();
     public PlayerDamagedState damagedState = new PlayerDamagedState();
     public PlayerBowAttackState bowAttackState = new PlayerBowAttackState();
+    public  PlayerControllingObjectState controllingState = new PlayerControllingObjectState();
     #endregion
     #region Gameplay
     [HideInInspector] public CharacterController2D ch2D;

@@ -7,7 +7,7 @@ using UnityEditor.Experimental.TerrainAPI;
 [CustomEditor(typeof(InteractableObject))]
 public class InteractiveObjectEditor : Editor
 {
-    SerializedProperty canBeReactivatedField, timeToReactivateField, OnInteractWithPlayerField, canInteract;
+    SerializedProperty canBeReactivatedField, timeToReactivateField, OnInteractWithPlayerField, canInteract, interacting;
     private void OnEnable()
     {
         canBeReactivatedField = serializedObject.FindProperty("canBeReactivated");
@@ -21,13 +21,11 @@ public class InteractiveObjectEditor : Editor
         serializedObject.Update();
         EditorGUILayout.PropertyField(canBeReactivatedField);
         EditorGUILayout.PropertyField(canInteract);
-
+        EditorGUILayout.PropertyField(OnInteractWithPlayerField);
         if(canBeReactivatedField.boolValue == true)
         {
             EditorGUILayout.PropertyField(timeToReactivateField);
         }
-
-        EditorGUILayout.PropertyField(OnInteractWithPlayerField);
 
 
         serializedObject.ApplyModifiedProperties();

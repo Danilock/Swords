@@ -20,25 +20,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="46ed24a5-4eef-46c8-84cf-a113aba88c57" name="Default Changelist" comment="Commit example in Rider.">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Events/Event_OnCollisionExit2D.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Events/Event_OnCollisionExit2D.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Events/Event_OnStart.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Events/Event_OnStart.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Events/Event_OnTriggerExit2D.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Events/Event_OnTriggerExit2D.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Events/Event_OnUpdate.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Events/Event_OnUpdate.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game/UI/InteractiveObjectFill.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game/UI/InteractiveObjectFill.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Swords Prototype/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Swords Prototype/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Swords Prototype/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Swords Prototype/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Characters/Player/PlayerJump.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Characters/Player/PlayerJump.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Items/Item +20 Life.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Items/Item +20 Life.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Characters/Enemies/EnemyController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Characters/Enemies/EnemyController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Characters/Enemies/EnemyIA.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Characters/Enemies/EnemyIA.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Editor/Puzzles/InteractiveObjectEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Editor/Puzzles/InteractiveObjectEditor.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Characters/Player/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Characters/Player/PlayerController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Managers/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Managers/GameManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Puzzles/InteractableObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Puzzles/InteractableObject.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Characters/Enemies/Worm/walk03.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Characters/Enemies/Worm/walk03.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/Physics2DSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Physics2DSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -52,8 +45,10 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Scriptable/ScriptableItem.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Game/UI/HUD/PlayerHealthKitBar.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Editor/Puzzles/DraggableObjectEditor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Game/UI/HUD/CoinsUI.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Game/Characters/Player/PlayerHealthKitController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/49F4E7E7-91CC-4FFF-ACD8-8F729E2B1E4C/a4/99b9bb9a/GameObject.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -62,7 +57,6 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Editor/Items/ItemEditor.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Game/Characters/Player/PlayerAttackController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Game/Characters/Player/Player FSM/PlayerHealingState.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Game/Characters/Player/Player FSM/PlayerIdleState.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Game/UI/HUD/PlayerHealthKit.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Scriptable/ScriptableItem.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Game/UI/HUD/PlayerHealthKitBar.cs" />
@@ -73,17 +67,28 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Game/UI/HUD/CoinsUI.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Game/Characters/Enemies/EnemyIA.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Game/Managers/CoinManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Game/Puzzles/InteractableObject.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Game/Events/ExampleStateMachine.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Game/Events/Event_OnTriggerExit2D.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Game/Events/Event_OnStart.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Game/Events/Event_OnCollisionExit2D.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Game/Events/Event_OnUpdate.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Game/Managers/GameManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Game/Characters/Player/PlayerController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Example.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Game/Characters/Enemies/EnemyController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Game/Managers/EnemyWaveController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Game/Puzzles/InteractableObject.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Editor/Puzzles/InteractiveObjectEditor.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Game/Characters/Player/Player FSM/PlayerMovingState.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Game/Characters/Player/Player FSM/PlayerIdleState.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Game/Platforms/PlatformEffectorChecker.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Game/Platforms/ChangeLayer.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Game/UI/InteractiveObjectFill.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Game/Characters/Player/Player FSM/PlayerControllingObjectState.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Game/Characters/Player/PlayerController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Game/Platforms/PlatformEffectorCheck.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Game/Managers/GameManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Game/Puzzles/ControlObject.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Game/Puzzles/DraggableObject.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Editor/Puzzles/DraggableObjectEditor.cs" />
       </list>
     </option>
   </component>
@@ -134,6 +139,11 @@
       <workItem from="1604325055418" duration="8884000" />
       <workItem from="1604372085533" duration="4057000" />
       <workItem from="1604418162826" duration="6481000" />
+      <workItem from="1604535997622" duration="3864000" />
+      <workItem from="1604941607537" duration="1036000" />
+      <workItem from="1604965185027" duration="10006000" />
+      <workItem from="1605035132863" duration="2905000" />
+      <workItem from="1605114124838" duration="10237000" />
     </task>
     <task id="LOCAL-00001" summary="Commit example in Rider.">
       <created>1604274968361</created>
@@ -172,18 +182,18 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1604171625025" />
-    <state x="724" y="236" key="RiderGenerateDialog" timestamp="1604290307703">
+    <state x="724" y="236" key="RiderGenerateDialog" timestamp="1605122179915">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="724" y="236" key="RiderGenerateDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1604290307703" />
+    <state x="724" y="236" key="RiderGenerateDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1605122179915" />
     <state x="461" y="165" key="SettingsEditor" timestamp="1604325407189">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1604325407189" />
-    <state x="92" y="92" width="1736" height="856" key="VCS.FileHistoryDialog" timestamp="1604430983690">
+    <state x="92" y="92" width="1736" height="856" key="VCS.FileHistoryDialog" timestamp="1605121669086">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="92" y="92" width="1736" height="856" key="VCS.FileHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1604430983690" />
+    <state x="92" y="92" width="1736" height="856" key="VCS.FileHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1605121669086" />
     <state x="552" y="240" key="Vcs.Push.Dialog.v2" timestamp="1604274983042">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

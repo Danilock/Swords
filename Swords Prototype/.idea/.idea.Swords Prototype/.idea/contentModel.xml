@@ -139,6 +139,7 @@
         <e p="Scripts" t="Include">
           <e p="Editor" t="Include">
             <e p="Puzzles" t="Include">
+              <e p="DraggableObjectEditor.cs" t="Include" />
               <e p="InteractiveObjectEditor.cs" t="Include" />
               <e p="PlatformsEditor.cs" t="Include" />
               <e p="TrapEditor.cs" t="Include" />
@@ -164,6 +165,7 @@
                   <e p="PlayerAttackState.cs" t="Include" />
                   <e p="PlayerBaseState.cs" t="Include" />
                   <e p="PlayerBowAttackState.cs" t="Include" />
+                  <e p="PlayerControllingObjectState.cs" t="Include" />
                   <e p="PlayerDamagedState.cs" t="Include" />
                   <e p="PlayerDeadState.cs" t="Include" />
                   <e p="PlayerIdleState.cs" t="Include" />
@@ -195,10 +197,14 @@
               <e p="EnemyWaveController.cs" t="Include" />
               <e p="GameManager.cs" t="Include" />
             </e>
+            <e p="Platforms" t="Include">
+              <e p="PlatformEffectorCheck.cs" t="Include" />
+            </e>
             <e p="Puzzles" t="Include">
               <e p="Coins" t="Include">
                 <e p="Coin.cs" t="Include" />
               </e>
+              <e p="DraggableObject.cs" t="Include" />
               <e p="InteractableObject.cs" t="Include" />
               <e p="Trap.cs" t="Include" />
             </e>
@@ -209,6 +215,7 @@
                 <e p="PlayerHealthBar.cs" t="Include" />
                 <e p="PlayerHealthKitBar.cs" t="Include" />
               </e>
+              <e p="InteractiveObjectFill.cs" t="Include" />
             </e>
             <e p="Weapons" t="Include">
               <e p="Projectile.cs" t="Include" />

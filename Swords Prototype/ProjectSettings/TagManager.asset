@@ -27,8 +27,8 @@ TagManager:
   - Wall
   - No Ground
   - Coin
-  - 
-  - 
+  - Ignore player and no ground
+  - Platform
   - 
   - 
   - 

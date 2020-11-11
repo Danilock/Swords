@@ -66,6 +66,13 @@ public class GameManager : MonoBehaviour
         SendMessage(focus ? "ResumeGame" : "PauseGame");
     }
 
+    public static void SetTimeScale(float scale)
+    {
+        Time.timeScale = scale;
+        if (player)
+            player.playerAnimator.speed = scale;
+    }
+
     #region Set Game State
     public void SetMenuState() => currentGameState = GameState.InMenu;
 
