@@ -20,19 +20,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="46ed24a5-4eef-46c8-84cf-a113aba88c57" name="Default Changelist" comment="Commit example in Rider.">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game/UI/InteractiveObjectFill.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game/UI/InteractiveObjectFill.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Swords Prototype/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Swords Prototype/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Swords Prototype/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Swords Prototype/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Swords Prototype/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Swords Prototype/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Editor/Puzzles/InteractiveObjectEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Editor/Puzzles/InteractiveObjectEditor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Characters/Player/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Characters/Player/PlayerController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Managers/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Managers/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Puzzles/InteractableObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Puzzles/InteractableObject.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Characters/Enemies/Worm/walk03.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Characters/Enemies/Worm/walk03.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/Physics2DSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Physics2DSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Lerp/LerpMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Lerp/LerpMovement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Platforms/PlatformEffectorCheck.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Platforms/PlatformEffectorCheck.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Puzzles/DraggableObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Puzzles/DraggableObject.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +46,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/Game/Lerp/LerpMovement.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Editor/Items/ItemEditor.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Game/Characters/Player/PlayerAttackController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Game/Characters/Player/Player FSM/PlayerHealingState.cs" />
@@ -84,11 +76,12 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Game/UI/InteractiveObjectFill.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Game/Characters/Player/Player FSM/PlayerControllingObjectState.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Game/Characters/Player/PlayerController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Game/Platforms/PlatformEffectorCheck.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Game/Managers/GameManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Game/Puzzles/ControlObject.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Game/Puzzles/DraggableObject.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Game/Platforms/PlatformEffectorCheck.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Game/Lerp/LerpMovement.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Editor/Puzzles/DraggableObjectEditor.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Game/Puzzles/DraggableObject.cs" />
       </list>
     </option>
   </component>
@@ -143,7 +136,8 @@
       <workItem from="1604941607537" duration="1036000" />
       <workItem from="1604965185027" duration="10006000" />
       <workItem from="1605035132863" duration="2905000" />
-      <workItem from="1605114124838" duration="10237000" />
+      <workItem from="1605114124838" duration="10627000" />
+      <workItem from="1605148488962" duration="3438000" />
     </task>
     <task id="LOCAL-00001" summary="Commit example in Rider.">
       <created>1604274968361</created>

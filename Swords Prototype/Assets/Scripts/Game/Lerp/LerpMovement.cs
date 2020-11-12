@@ -2,24 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-
+[DisallowMultipleComponent]
 public class LerpMovement : MonoBehaviour
 {
     #region Events
-    [SerializeField] UnityEvent OnReachEndPosition;
+    [SerializeField] UnityEvent OnReachEndPosition, OnStartMoving;
     #endregion
     #region Lerp Behaviour
     Vector2 startPosition, endPosition, onLevelStartPosition;
     [SerializeField, Range(0, 1)] float lerpPct; //Percentage of lerping(0 to 1).
-    [SerializeField, Range(1, 100)] float lerpSpeed = 1;
-    [SerializeField] bool move;
-    [SerializeField] Collider2D objCollider;
+    [SerializeField, Range(1, 200)] float lerpSpeed = 1;
+
+    public float LerpSpeed
+    {
+        get => lerpSpeed;
+        set => lerpSpeed = value;
+    }
+
     bool moving;
     #endregion 
     private void Start()
     {
         onLevelStartPosition = transform.position;
-        objCollider = GetComponent<Collider2D>();
     }
 
     private void Update()
@@ -31,7 +35,6 @@ public class LerpMovement : MonoBehaviour
 
             if(Vector2.Distance(transform.position, endPosition) < .01f)
             {
-                ObjectColliderTriggerState(false);
                 moving = false;
                 OnReachEndPosition.Invoke();
             }
@@ -48,8 +51,8 @@ public class LerpMovement : MonoBehaviour
         startPosition = transform.position;
         endPosition = destination.position;
         moving = true;
-
-        ObjectColliderTriggerState(true);
+        
+        OnStartMoving.Invoke();
     }
     /// <summary>
     /// Moves the object to the initial position when it's instantiated or level loaded.
@@ -60,14 +63,7 @@ public class LerpMovement : MonoBehaviour
         startPosition = transform.position;
         endPosition = onLevelStartPosition;
         moving = true;
-
-        ObjectColliderTriggerState(true);
-    }
-
-    ///Puts object collider to true(If it exist)
-    void ObjectColliderTriggerState(bool state)
-    {
-        if (objCollider)
-            objCollider.isTrigger = state;
+        
+        OnStartMoving.Invoke();
     }
 }

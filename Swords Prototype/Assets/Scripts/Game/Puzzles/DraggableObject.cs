@@ -5,10 +5,11 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Serialization;
 
-[RequireComponent(typeof(Collider2D))]
+[RequireComponent(typeof(Collider2D), typeof(LerpMovement))]
 public class DraggableObject : MonoBehaviour
 {
     private PlayerController player;
+    private LerpMovement lerpMovement;
     [SerializeField] private bool canInteract = true;
     public bool CanInteract
     {
@@ -50,8 +51,10 @@ public class DraggableObject : MonoBehaviour
     {
         startPosition = transform.position;
         dragableObjectCollider = GetComponent<Collider2D>();
-        currentState = dragableObjectState.Idle;
         player = FindObjectOfType<PlayerController>();
+        lerpMovement = GetComponent<LerpMovement>();
+        lerpMovement.LerpSpeed = 200f;
+        currentState = dragableObjectState.Idle;
     }
 
     // Update is called once per frame
@@ -98,6 +101,7 @@ public class DraggableObject : MonoBehaviour
         if (Physics2D.IsTouching(dragableObjectCollider, completeTargetArea))
         {
             OnDragCompleted.Invoke();
+            lerpMovement.Move(completeTargetArea.transform);
             currentState = dragableObjectState.DragCompleted;
             return;
         }
