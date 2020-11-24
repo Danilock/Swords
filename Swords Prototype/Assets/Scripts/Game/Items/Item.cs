@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-[RequireComponent(typeof(InteractableObject))]
 public class Item : MonoBehaviour
 {
     [SerializeField] private ScriptableItem itemProfile;

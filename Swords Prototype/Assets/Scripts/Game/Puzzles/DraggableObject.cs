@@ -97,15 +97,22 @@ public class DraggableObject : MonoBehaviour
     /// </summary>
     private void OnMouseUp()
     {
-        //If detects the Target Complete Area then set's the object state to completed. 
-        if (Physics2D.IsTouching(dragableObjectCollider, completeTargetArea))
-        {
-            OnDragCompleted.Invoke();
-            lerpMovement.Move(completeTargetArea.transform);
-            currentState = dragableObjectState.DragCompleted;
+        if(!canInteract)
             return;
+        //If detects the Target Complete Area then set's the object state to completed.
+        if (canCompleteDrag)
+        {
+            if (Physics2D.IsTouching(dragableObjectCollider, completeTargetArea))
+            {
+                OnDragCompleted.Invoke();
+                lerpMovement.Move(completeTargetArea.transform);
+                currentState = dragableObjectState.DragCompleted;
+                canInteract = false;
+                player.SetState(player.idleState);
+                return;
+            }
         }
-        
+
         //Saving last position to be used in the lerp operation to return to it's start position
         lastPosition = transform.position;
         currentState = dragableObjectState.DragCancelled;
@@ -138,5 +145,19 @@ public class DraggableObject : MonoBehaviour
         if(!canInteract)
             return;
         player.SetState(player.idleState);
+    }
+
+    public void GenerateCompleteArea()
+    {
+        GameObject newTargetArea = new GameObject(gameObject.name + " target area");
+        newTargetArea.transform.position = transform.position;
+        BoxCollider2D newTargetAreaCollider = newTargetArea.AddComponent<BoxCollider2D>();
+        
+        newTargetAreaCollider.isTrigger = true;
+        newTargetAreaCollider.size = new Vector2(.5f, .5f);
+        completeTargetArea = newTargetAreaCollider;
+        
+        Rigidbody2D newTargetAreaRGB = newTargetArea.AddComponent<Rigidbody2D>();
+        newTargetAreaRGB.isKinematic = true;
     }
 }

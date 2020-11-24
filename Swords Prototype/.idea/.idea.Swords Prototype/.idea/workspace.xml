@@ -20,12 +20,39 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="46ed24a5-4eef-46c8-84cf-a113aba88c57" name="Default Changelist" comment="Commit example in Rider.">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Swords Prototype/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Swords Prototype/.idea/indexLayout.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Swords Prototype/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Swords Prototype/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Swords Prototype/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Swords Prototype/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Characters/Enemies/Box Enemy/Attack.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Characters/Enemies/Box Enemy/Attack.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Characters/Player/PlayerAttack.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Characters/Player/PlayerAttack.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Characters/Player/PlayerAttack2.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Characters/Player/PlayerAttack2.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Characters/Player/PlayerAttack3.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Characters/Player/PlayerAttack3.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Characters/Player/PlayerAttack4.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Characters/Player/PlayerAttack4.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Characters/Player/PlayerAttack5.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Characters/Player/PlayerAttack5.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Characters/Player/PlayerAttack6.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Characters/Player/PlayerAttack6.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Characters/Anna.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Characters/Anna.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Characters/Enemies/Big Demon.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Characters/Enemies/Big Demon.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/HUD.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/HUD.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Lerp/LerpMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Lerp/LerpMovement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scriptable Profiles/Items/Life +20 adder.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scriptable Profiles/Items/Life +20 adder.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Editor/Puzzles/DraggableObjectEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Editor/Puzzles/DraggableObjectEditor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Characters/Enemies/EnemyAttack.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Characters/Enemies/EnemyAttack.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Characters/Enemies/EnemyController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Characters/Enemies/EnemyController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Characters/Enemies/EnemyIA.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Characters/Enemies/EnemyIA.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Characters/Player/Player FSM/PlayerIdleState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Characters/Player/Player FSM/PlayerIdleState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Characters/Player/Player FSM/PlayerJumpState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Characters/Player/Player FSM/PlayerJumpState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Characters/Player/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Characters/Player/PlayerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Items/Item.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Items/Item.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Managers/EnemyWaveController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Managers/EnemyWaveController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Managers/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Managers/GameManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Platforms/PlatformEffectorCheck.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Platforms/PlatformEffectorCheck.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Puzzles/DraggableObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Puzzles/DraggableObject.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/UI/EnemyHealthBar.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/UI/EnemyHealthBar.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/UI/HUD/CoinsUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/UI/HUD/CoinsUI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/UI/HUD/PlayerHealthBar.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/UI/HUD/PlayerHealthBar.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/Physics2DSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Physics2DSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,6 +65,8 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Scriptable/ScriptableItem.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Game/UI/HUD/PlayerHealthKitBar.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Editor/Windows/EnemyJumpIAWindow.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Editor/Windows/GenerateDraggableObject.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Editor/Puzzles/DraggableObjectEditor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Game/UI/HUD/CoinsUI.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Game/Characters/Player/PlayerHealthKitController.cs" root0="FORCE_HIGHLIGHTING" />
@@ -53,11 +82,8 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Scriptable/ScriptableItem.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Game/UI/HUD/PlayerHealthKitBar.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Game/Characters/Player/PlayerHealthKitController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Game/Items/Item.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Game/Managers/CoinsManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Game/Puzzles/Coins/Coin.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Game/UI/HUD/CoinsUI.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Game/Characters/Enemies/EnemyIA.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Game/Managers/CoinManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Game/Events/ExampleStateMachine.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Game/Events/Event_OnTriggerExit2D.cs" />
@@ -65,23 +91,35 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Game/Events/Event_OnCollisionExit2D.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Game/Events/Event_OnUpdate.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Example.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Game/Characters/Enemies/EnemyController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Game/Managers/EnemyWaveController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Game/Puzzles/InteractableObject.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Editor/Puzzles/InteractiveObjectEditor.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Game/Characters/Player/Player FSM/PlayerMovingState.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Game/Characters/Player/Player FSM/PlayerIdleState.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Game/Platforms/PlatformEffectorChecker.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Game/Platforms/ChangeLayer.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Game/UI/InteractiveObjectFill.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Game/Characters/Player/Player FSM/PlayerControllingObjectState.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Game/Characters/Player/PlayerController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Game/Managers/GameManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Game/Puzzles/ControlObject.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Game/Platforms/PlatformEffectorCheck.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Game/Lerp/LerpMovement.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Game/Characters/Player/Player FSM/PlayerIdleState.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Game/Platforms/PlatformEffectorCheck.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Game/Characters/Player/Player FSM/PlayerJumpState.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Game/Items/Item.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Game/Characters/Enemies/EnemyAttack.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/MoveExample.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Editor Windows/EnemyJumperWindow.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Game/Characters/Enemies/EnemyIA.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Game/Characters/Enemies/EnemyJumpArea.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Editor/Windows/EnemyJumpIAWindow.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Game/Characters/Enemies/EnemyController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Game/UI/EnemyHealthBar.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Game/UI/HUD/CoinsUI.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Game/UI/HUD/PlayerHealthBar.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Game/Managers/EnemyWaveController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Game/Characters/Player/PlayerController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Editor/Puzzles/DraggableObjectEditor.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Editor/Windows/GenerateDraggableObject.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Game/Puzzles/DraggableObject.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Game/Managers/GameManager.cs" />
       </list>
     </option>
   </component>
@@ -95,7 +133,7 @@
     <property name="Discover.Launch.Via.Unity" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="preferences.build.unityPlugin" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
@@ -137,7 +175,19 @@
       <workItem from="1604965185027" duration="10006000" />
       <workItem from="1605035132863" duration="2905000" />
       <workItem from="1605114124838" duration="10627000" />
-      <workItem from="1605148488962" duration="3438000" />
+      <workItem from="1605148488962" duration="4052000" />
+      <workItem from="1605202291676" duration="1125000" />
+      <workItem from="1605314129868" duration="3248000" />
+      <workItem from="1605418394309" duration="643000" />
+      <workItem from="1605512849586" duration="2039000" />
+      <workItem from="1605716679959" duration="7054000" />
+      <workItem from="1605741726298" duration="820000" />
+      <workItem from="1605828840462" duration="9095000" />
+      <workItem from="1605902876149" duration="1902000" />
+      <workItem from="1605931008068" duration="7002000" />
+      <workItem from="1605997295492" duration="6116000" />
+      <workItem from="1606160519105" duration="566000" />
+      <workItem from="1606167786993" duration="1681000" />
     </task>
     <task id="LOCAL-00001" summary="Commit example in Rider.">
       <created>1604274968361</created>
@@ -180,10 +230,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="724" y="236" key="RiderGenerateDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1605122179915" />
-    <state x="461" y="165" key="SettingsEditor" timestamp="1604325407189">
+    <state x="461" y="165" key="SettingsEditor" timestamp="1606169287921">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1604325407189" />
+    <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1606169287921" />
     <state x="92" y="92" width="1736" height="856" key="VCS.FileHistoryDialog" timestamp="1605121669086">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -192,9 +242,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="240" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1604274983042" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1604276962763">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1605734130101">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1604276962763" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1605734130101" />
   </component>
 </project>

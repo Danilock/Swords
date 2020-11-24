@@ -17,7 +17,7 @@ public class PlatformEffectorCheck : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            if (player.rgb2D.velocity.y == 0f)
+            if (player.rgb2D.velocity.y <= 0.3f)
             {
                 gameObject.layer = LayerMask.NameToLayer("Platform");
             }

@@ -11,10 +11,14 @@ public class GameManager : MonoBehaviour
     public static GameManager Instace { get { return _instance; } }
     #endregion
 
-    public enum GameState { Paused, InGame, InMenu, Loading }
+    #region Game States
+    public enum GameState { Paused, InGame, InMenu, Loading, LevelCompleted }
     public static GameState currentGameState { get; private set; }
+    #endregion
 
     public static PlayerController player;
+    public static string nextLevelName;
+    private FadeImage fadeScreen;
     private void Awake()
     {
         #region Initializing GameManager Singleton
@@ -29,6 +33,7 @@ public class GameManager : MonoBehaviour
         }
         #endregion
         currentGameState = GameState.InGame;
+        fadeScreen = GetComponentInChildren<FadeImage>();
     }
 
     private void Update()
@@ -40,7 +45,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void PauseGame()
+    #region Game Pause/Resume
+
+    public void PauseGame()
     {
         currentGameState = GameState.Paused;
         if (player)
@@ -48,18 +55,39 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0f;
     }
 
-    void ResumeGame()
+    public void ResumeGame()
     {
         currentGameState = GameState.InGame;
         if (player)
             player.playerAnimator.speed = 1f;
         Time.timeScale = 1f;   
     }
+    #endregion
 
-    public static void RestartLevel()
+    #region Level Management
+
+    public void LevelComplete()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        currentGameState = GameState.LevelCompleted;
+        fadeScreen.Fade(FadeImage.FadeMode.Show);
     }
+
+    public void GoToNextLevel() => StartCoroutine(AsyncLoadLevel(nextLevelName));
+
+    public IEnumerator AsyncLoadLevel(string levelName)
+    {
+        AsyncOperation asyncLoadLevel = SceneManager.LoadSceneAsync(levelName);
+
+        while (!asyncLoadLevel.isDone)
+        {
+            yield return null;
+        }
+
+        fadeScreen.Fade(FadeImage.FadeMode.Hide);
+    }
+
+    
+    #endregion
 
     private void OnApplicationFocus(bool focus)
     {
@@ -80,5 +108,8 @@ public class GameManager : MonoBehaviour
 
     public void SetInGameState() => currentGameState = GameState.InGame;
     public void SetPauseState() => currentGameState = GameState.Paused;
+
+    public void SetState(GameState newState) => currentGameState = newState;
+
     #endregion
 }

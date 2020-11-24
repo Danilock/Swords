@@ -84,7 +84,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8941177785101151921}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.165, y: -0.057, z: 0}
+  m_LocalPosition: {x: 0.124, y: -0.057, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8941177786151478560}
@@ -236,7 +236,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: 0
+  m_SortingLayerID: 1657208023
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!114 &8941177785416508579
@@ -480,8 +480,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 2050451897
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 7f93bf242c62d4b41aef70e70369edae, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -542,18 +542,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 8941177785416508581}
-        m_TargetAssemblyTypeName: HealthBar, Assembly-CSharp
-        m_MethodName: UpdateHealthBar
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 8941177786151478563}
         m_TargetAssemblyTypeName: EnemyController, Assembly-CSharp
         m_MethodName: PushEnemy
@@ -607,18 +595,6 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 8941177786151478563}
         m_TargetAssemblyTypeName: EnemyController, Assembly-CSharp
-        m_MethodName: KillWaveInstance
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 8941177786151478563}
-        m_TargetAssemblyTypeName: EnemyController, Assembly-CSharp
         m_MethodName: DestroyMe
         m_Mode: 1
         m_Arguments:
@@ -627,7 +603,7 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 1
+          m_BoolArgument: 0
         m_CallState: 2
   OnNormalStateUpdate:
     m_PersistentCalls:
@@ -689,8 +665,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e4ebcc5e162ae64dbcd49338251aee0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_JumpForce: 400
-  m_CrouchSpeed: 0.111
+  m_JumpForce: 200
+  m_CrouchSpeed: 0.1
   m_MovementSmoothing: 0.05
   m_AirControl: 0
   m_WhatIsGround:
@@ -777,7 +753,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   reachDistance: 0.5
+  canJump: 1
   detectedTarget: {fileID: 0}
+  direction: 0
+  mCurrentState: 0
 --- !u!70 &8941177786151478565
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -791,8 +770,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0031585693, y: -0.04704255}
-  m_Size: {x: 0.37997627, y: 0.5315851}
+  m_Offset: {x: 0.0031585693, y: -0.027592659}
+  m_Size: {x: 0.37997627, y: 0.49268532}
   m_Direction: 0
 --- !u!114 &8941177786151478566
 MonoBehaviour:

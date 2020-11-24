@@ -11,6 +11,7 @@ TagManager:
   - Trap
   - Coin
   - Jumper
+  - Draggable Object
   layers:
   - Default
   - TransparentFX
@@ -29,7 +30,7 @@ TagManager:
   - Coin
   - Ignore player and no ground
   - Platform
-  - 
+  - Environment
   - 
   - 
   - 
@@ -60,7 +61,7 @@ TagManager:
   - name: Decorations Over Environment
     uniqueID: 1910501173
     locked: 0
-  - name: UI
+  - name: UI in World Space
     uniqueID: 1657208023
     locked: 0
   - name: Weapons
@@ -69,6 +70,12 @@ TagManager:
   - name: Characters
     uniqueID: 2050451897
     locked: 0
-  - name: Decorations/Environment Over Character
+  - name: Decorations Over Character/Environment Over Character
     uniqueID: 716083745
+    locked: 0
+  - name: UI in Screen
+    uniqueID: 2683891959
+    locked: 0
+  - name: Fade
+    uniqueID: 3212834319
     locked: 0

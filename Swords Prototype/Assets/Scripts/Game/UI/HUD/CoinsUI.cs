@@ -11,7 +11,8 @@ public class CoinsUI : MonoBehaviour
 
     private void Start()
     {
-        coinsText = GetComponentInChildren<TextMeshProUGUI>();
+        if(coinsText == null)
+            coinsText = GetComponentInChildren<TextMeshProUGUI>();
         coinManager = FindObjectOfType<CoinManager>();
     }
 

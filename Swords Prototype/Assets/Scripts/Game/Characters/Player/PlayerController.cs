@@ -17,15 +17,21 @@ public class PlayerController : MonoBehaviour
     public  PlayerControllingObjectState controllingState = new PlayerControllingObjectState();
     #endregion
     #region Gameplay
+
+    [SerializeField] private LayerMask stopMovementLayers;
+    [SerializeField] private Vector3 wallLineOffset;
     [HideInInspector] public CharacterController2D ch2D;
     [HideInInspector] public float horizontalMove;
     [HideInInspector] public Rigidbody2D rgb2D;
     [HideInInspector] public PlayerAttackController attackController;
-    [HideInInspector] public PlayerHealthBar healthBar;
     #endregion
     #region Events
     [SerializeField] UnityEvent OnPlayerDead;
-    [SerializeField] UnityEvent OnPlayerTakeDamage;
+    public UnityEvent OnPlayerTakeDamage;
+
+    public delegate void OnRegenerateLife();
+
+    public event OnRegenerateLife OnLifeRegenerating ;
     #endregion
     #region Animation
     [HideInInspector] public Animator playerAnimator;
@@ -47,7 +53,6 @@ public class PlayerController : MonoBehaviour
         ch2D = GetComponent<CharacterController2D>();
         attackController = GetComponent<PlayerAttackController>();
         playerAnimator = GetComponent<Animator>();
-        healthBar = FindObjectOfType<PlayerHealthBar>();
         GameManager.player = this;
         CurrentHealth = StartHealth;
 
@@ -72,7 +77,6 @@ public class PlayerController : MonoBehaviour
     public void TakeDamage(float damage)
     {
         CurrentHealth -= damage;
-        healthBar.UpdatePlayerHealthBar();
         if (CurrentHealth <= 0f)
         {
             OnPlayerDead?.Invoke();
@@ -80,9 +84,9 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            OnPlayerTakeDamage?.Invoke();
             SetState(damagedState);
         }
+        OnPlayerTakeDamage?.Invoke();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -132,8 +136,8 @@ public class PlayerController : MonoBehaviour
     public bool CollidedWall()
     {
         bool linecastDetectWall = Physics2D.Linecast(transform.position,
-                                               transform.position + (transform.right * transform.localScale.x * .25f),
-                                               LayerMask.GetMask("Wall"));
+            transform.position + (transform.right * transform.localScale.x * .25f),
+            stopMovementLayers);
 
         return linecastDetectWall;
     }
@@ -145,19 +149,22 @@ public class PlayerController : MonoBehaviour
     public void RegenerateLife(float regenerationRate)
     {
         CurrentHealth += regenerationRate * Time.deltaTime;
-        healthBar.UpdatePlayerHealthBar();
+        //healthBar.UpdatePlayerHealthBar();
+        if(OnLifeRegenerating != null)
+            OnLifeRegenerating();
     }
 
     public void SetLife(float amount)
     {
         CurrentHealth = amount;
-        healthBar.UpdatePlayerHealthBar();
+        if(OnLifeRegenerating != null)
+            OnLifeRegenerating();
     }
 
     private void OnDrawGizmos()
     {
         //Drawing gizmos for raycastLine to detect walls(this is used to stop player air movement when detect the wall)
         Gizmos.color = Color.blue * .5f;
-        Gizmos.DrawLine(transform.position, transform.position + (transform.right * transform.localScale.x * .25f));
+        Gizmos.DrawLine(transform.position + wallLineOffset, transform.position + (transform.right * transform.localScale.x * .25f) + wallLineOffset);
     }
 }

@@ -144,6 +144,10 @@
               <e p="PlatformsEditor.cs" t="Include" />
               <e p="TrapEditor.cs" t="Include" />
             </e>
+            <e p="Windows" t="Include">
+              <e p="EnemyJumpIAWindow.cs" t="Include" />
+              <e p="GenerateDraggableObject.cs" t="Include" />
+            </e>
           </e>
           <e p="Game" t="Include">
             <e p="Characters" t="Include">
@@ -158,6 +162,7 @@
                 <e p="EnemyAttack.cs" t="Include" />
                 <e p="EnemyController.cs" t="Include" />
                 <e p="EnemyIA.cs" t="Include" />
+                <e p="EnemyJumpArea.cs" t="Include" />
               </e>
               <e p="Player" t="Include">
                 <e p="CharacterController2D.cs" t="Include" />

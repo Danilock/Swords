@@ -5,7 +5,7 @@ using UnityEngine.Events;
 public class EnemyController : MonoBehaviour
 {
     #region Events
-    [SerializeField] UnityEvent OnTakeDamage;
+    public UnityEvent OnTakeDamage;
     public UnityEvent OnEnemyDead;
     public UnityEvent OnNormalStateUpdate;
     #endregion

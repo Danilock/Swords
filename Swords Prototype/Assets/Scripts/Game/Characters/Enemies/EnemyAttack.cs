@@ -23,6 +23,7 @@ public class EnemyAttack : MonoBehaviour
         player = FindObjectOfType<PlayerController>();
         enemy = GetComponent<EnemyController>();
         attackCooldown = enemy.enemyProfile.attackCooldown;
+        Debug.Log(attackCooldown);
     }
 
     /// <summary>
@@ -30,9 +31,9 @@ public class EnemyAttack : MonoBehaviour
     /// </summary>
     public void DrawAttackArea()
     {
-        bool touchedPlayer = Physics2D.OverlapBox(attackAreaPoint.position, attackAreaSize, 0f, LayerMask.GetMask("Player"));
+        bool detectedPlayer = Physics2D.OverlapBox(attackAreaPoint.position, attackAreaSize, 0f, LayerMask.GetMask("Player"));
 
-        if (touchedPlayer)
+        if (detectedPlayer && canAttack)
         {
             OnDetectPlayer.Invoke();
         }
@@ -40,8 +41,6 @@ public class EnemyAttack : MonoBehaviour
 
     public void DoDamage()
     {
-        if (!canAttack)
-            return;
         bool touchedPlayer = Physics2D.OverlapBox(attackAreaPoint.position, attackAreaSize, 0f, LayerMask.GetMask("Player"));
 
         if (touchedPlayer)

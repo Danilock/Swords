@@ -1,10 +1,25 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyWaveController : MonoBehaviour
 {
     [SerializeField] EnemyWave[] waves;
+
+    private void Start()
+    {
+        #region InitializingEnemyWaves
+        foreach (EnemyWave currentWave in waves)
+        {
+            foreach (EnemyController currentEnemy in currentWave.enemiesOnWave)
+            {
+                //Adding the killWaveInstance method to the OnEnemyDead Listener.
+                currentEnemy.OnEnemyDead.AddListener(currentEnemy.KillWaveInstance);
+            }
+        }
+        #endregion
+    }
 
     /// <summary>
     /// Evaluates every wave list and check if the name specified in the parameter matchs one of the elements.

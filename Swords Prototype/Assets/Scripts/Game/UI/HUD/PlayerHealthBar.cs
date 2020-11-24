@@ -1,5 +1,7 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,6 +14,7 @@ public class PlayerHealthBar : MonoBehaviour
     Slider healthSlider;
     [SerializeField] Image fill;
     [SerializeField] Gradient fillGradient;
+    [SerializeField] private TextMeshProUGUI lifeText;
 
     private void Start()
     {
@@ -20,8 +23,18 @@ public class PlayerHealthBar : MonoBehaviour
 
         healthSlider.maxValue = player.StartHealth;
         healthSlider.value = player.StartHealth;
+        lifeText.text = $"{player.CurrentHealth}/{player.StartHealth}";
+        
+        player.OnPlayerTakeDamage.AddListener(UpdatePlayerHealthBar);
+        player.OnLifeRegenerating += UpdatePlayerHealthBar;
 
         fill.color = fillGradient.Evaluate(1f);
+    }
+
+    private void OnDisable()
+    {
+        player.OnPlayerTakeDamage.RemoveListener(UpdatePlayerHealthBar);
+        player.OnLifeRegenerating -= UpdatePlayerHealthBar;
     }
 
     /// <summary>
@@ -30,7 +43,8 @@ public class PlayerHealthBar : MonoBehaviour
     public void UpdatePlayerHealthBar()
     {
         healthSlider.value = player.CurrentHealth;
-
+        lifeText.text = $"{player.CurrentHealth}/{player.StartHealth}";
+        
         fill.color = fillGradient.Evaluate(healthSlider.normalizedValue);
     }
 }

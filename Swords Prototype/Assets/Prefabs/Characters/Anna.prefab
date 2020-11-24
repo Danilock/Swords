@@ -54,7 +54,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5835738442550374373}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.006, y: -0.232, z: 0}
+  m_LocalPosition: {x: 0.009, y: -0.205, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5835738442557339760}
@@ -114,41 +114,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec475f9842889f14f9c150f09ba25e39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stopMovementLayers:
+    serializedVersion: 2
+    m_Bits: 131072
+  wallLineOffset: {x: 0, y: -0.15, z: 0}
   ch2D: {fileID: 0}
   horizontalMove: 0
   rgb2D: {fileID: 0}
   attackController: {fileID: 0}
-  healthBar: {fileID: 0}
   OnPlayerDead:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: PlayerHealthBar, Assembly-CSharp
-        m_MethodName: UpdatePlayerHealthBar
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   OnPlayerTakeDamage:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: PlayerHealthBar, Assembly-CSharp
-        m_MethodName: UpdatePlayerHealthBar
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   playerAnimator: {fileID: 0}
   startHealth: 40
   speed: 1
@@ -165,12 +144,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_JumpForce: 250
-  m_CrouchSpeed: 0.3
+  m_CrouchSpeed: 0.254
   m_MovementSmoothing: 0.05
   m_AirControl: 1
   m_WhatIsGround:
     serializedVersion: 2
-    m_Bits: 7991
+    m_Bits: 203543
   m_GroundCheck: {fileID: 5835738442550374372}
   m_CeilingCheck: {fileID: 5835738442328416593}
   m_CrouchDisableCollider: {fileID: 0}
@@ -306,8 +285,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0100336075, y: 0.07963121}
-  m_Size: {x: 0.29167032, y: 0.5336368}
+  m_Offset: {x: 0.0100336075, y: 0.07591808}
+  m_Size: {x: 0.29167032, y: 0.5410631}
   m_Direction: 0
 --- !u!114 &446486275
 MonoBehaviour:

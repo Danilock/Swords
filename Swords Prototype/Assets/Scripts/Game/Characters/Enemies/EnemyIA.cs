@@ -15,12 +15,15 @@ public class EnemyIA : MonoBehaviour
     [SerializeField] Vector2 detectTargetAreaSize = new Vector3(4f, 4f);
     [SerializeField] LayerMask targetLayer;
     [SerializeField] float reachDistance = .3f;
-    [SerializeField] private bool canJump = false;
+    public bool canJump = false;
     EnemyController enemy;
     CharacterController2D ch2D;
     [HideInInspector] public Collider2D detectedTarget;
-    float direction;
-    bool isStoped, targetExit; //Target exit: used to avoid call the OnExitTarget every frame and just once.
+    [HideInInspector] public float direction;
+    bool targetExit; //Target exit: used to avoid call the OnExitTarget every frame and just once.
+    public enum CurrentState { isStopped, followingTarget}
+
+    [HideInInspector]public CurrentState mCurrentState;
     #endregion
 
     private void Start()
@@ -39,6 +42,7 @@ public class EnemyIA : MonoBehaviour
         if (detectedTarget)
         {
             targetExit = true;
+            mCurrentState = CurrentState.followingTarget;
             OnDetectTarget.Invoke();
         }
         else
@@ -56,8 +60,9 @@ public class EnemyIA : MonoBehaviour
     /// </summary>
     public void MoveEnemy()
     {
-        if (isStoped || Vector2.Distance(detectedTarget.transform.position, transform.position) < reachDistance)
+        if (mCurrentState == CurrentState.isStopped || Vector2.Distance(detectedTarget.transform.position, transform.position) < reachDistance)
             return;
+        mCurrentState = CurrentState.followingTarget;
         direction = Mathf.Sign(detectedTarget.transform.position.x - transform.position.x);
         ch2D.Move(direction, false, false); 
     }
@@ -87,12 +92,9 @@ public class EnemyIA : MonoBehaviour
         enemy.enemyAnimator.SetBool("Walking", state);
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    public void Jump()
     {
-        if (other.CompareTag("Jumper") && canJump)
-        {
-            ch2D.Move(direction, false, true);
-        }
+        ch2D.Move(direction, false, true);
     }
 
     private void OnDrawGizmos()

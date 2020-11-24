@@ -34,6 +34,14 @@ public class DraggableObjectEditor : Editor
         if (canCompleteDrag.boolValue == true)
         {
             EditorGUILayout.PropertyField(completeTargetArea);
+            if ((Collider2D) completeTargetArea.objectReferenceValue == null)
+            {
+                if (GUILayout.Button("Generate Complete Area"))
+                {
+                    DraggableObject currentDraggableObject = (DraggableObject) target;
+                    currentDraggableObject.GenerateCompleteArea();
+                }
+            }
         }
         
         if (returnOnDragCancelled.boolValue == false)
