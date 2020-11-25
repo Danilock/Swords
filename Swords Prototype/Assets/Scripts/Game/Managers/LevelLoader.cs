@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(BoxCollider2D))]
-public class LevelCompleteCollider : MonoBehaviour
+public class LevelLoader : MonoBehaviour
 {
     [SerializeField] string nextLevel;
     public int sceneSelected;
@@ -17,12 +17,9 @@ public class LevelCompleteCollider : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void LoadLevel()
     {
-        if(collision.gameObject.tag == "Player")
-        {
-            GameManager.nextLevelName = nextLevel;
-            FindObjectOfType<GameManager>().LevelComplete();
-        }
+        GameManager.sceneName = nextLevel;
+        FindObjectOfType<GameManager>().LoadLevel();
     }
 }

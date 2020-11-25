@@ -14,6 +14,7 @@ public class EnemyHealthBar : MonoBehaviour
         enemy = GetComponentInParent<EnemyController>();
         healthSlider = GetComponentInChildren<Slider>();
         enemy.OnTakeDamage.AddListener(UpdateHealthBar);
+        enemy.OnEnemyDead.AddListener(UpdateHealthBar);
     }
 
     public void UpdateHealthBar()

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-[CustomEditor(typeof(LevelCompleteCollider))]
+[CustomEditor(typeof(LevelLoader))]
 public class LevelCompleteColliderCustomEditor : Editor
 {
     SerializedProperty nextLevel, sceneSelected;

@@ -93,7 +93,7 @@ public class DraggableObject : MonoBehaviour
     }
 
     /// <summary>
-    /// When somebody left the mouse the object will return to its start position.
+    /// When left the mouse the object will return to its start position.
     /// </summary>
     private void OnMouseUp()
     {

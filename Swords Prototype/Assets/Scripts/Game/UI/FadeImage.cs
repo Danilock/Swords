@@ -12,7 +12,7 @@ public class FadeImage : MonoBehaviour
     public Target target = Target.image;
     public enum FadeMode { Show, Hide }
     public FadeMode fadeMode; 
-    enum FadeSpeed { Low = 1, Normal = 2, Fast = 3}
+    enum FadeSpeed { Low = 1, Normal = 3, Fast = 5}
     [SerializeField] FadeSpeed fadeSpeed = FadeSpeed.Normal;
     [SerializeField] UnityEvent onFadeShow, onFadeHide;
     float fadeOperation;
@@ -26,14 +26,17 @@ public class FadeImage : MonoBehaviour
         {
             Debug.LogError("Select an Image To FADE");
         }
-        currentImageColor = imageToFade.color;
+        else if(imageToFade != null)
+        {
+            currentImageColor = imageToFade.color;
+        }
     }
 
     private void Update()
     {
         if (fade)
         {
-            fadeOperation = Mathf.Abs((int)fadeSpeed * Time.unscaledDeltaTime) * (fadeMode == FadeMode.Show ? 1 : -1);
+            fadeOperation = Mathf.Abs((float)((float)fadeSpeed - .5) * Time.unscaledDeltaTime) * (fadeMode == FadeMode.Show ? 1 : -1);
 
             if (target == Target.image)
             {
@@ -52,18 +55,7 @@ public class FadeImage : MonoBehaviour
                 canvasToFade.alpha += fadeOperation;
             }
 
-
-
-            if (imageToFade.color.a > 1f || canvasToFade.alpha > 1f)
-            {
-                fade = false;
-                onFadeShow.Invoke();
-            }
-            else if (imageToFade.color.a < 0f || canvasToFade.alpha < 0f)
-            {
-                fade = false;
-                onFadeHide.Invoke();
-            }
+            CheckIfFadeCompleted();
         }
     }
 
@@ -74,4 +66,51 @@ public class FadeImage : MonoBehaviour
     }
 
     public void Fade() => fade = true;
+
+    //TODO: Really need to find a way to fix this shitty code.
+    /// <summary>
+    /// Check if the fade is completed and invoke the onfadeShow/hide events.
+    /// </summary>
+    public void CheckIfFadeCompleted()
+    {
+        if (target == Target.both)
+        {
+            if (imageToFade.color.a > 1f || canvasToFade.alpha >= 1f)
+            {
+                fade = false;
+                onFadeShow.Invoke();
+            }
+            else if (imageToFade.color.a < 0f || canvasToFade.alpha <= 0f)
+            {
+                fade = false;
+                onFadeHide.Invoke();
+            }
+        }
+        else if (target == Target.image)
+        {
+            if (imageToFade.color.a > 1f)
+            {
+                fade = false;
+                onFadeShow.Invoke();
+            }
+            else if (imageToFade.color.a < 0f)
+            {
+                fade = false;
+                onFadeHide.Invoke();
+            }
+        }
+        else if (target == Target.canvasGroup)
+        {
+            if (canvasToFade.alpha >= 1f)
+            {
+                fade = false;
+                onFadeShow.Invoke();
+            }
+            else if (canvasToFade.alpha <= 0f)
+            {
+                fade = false;
+                onFadeHide.Invoke();
+            }
+        }
+    }
 }

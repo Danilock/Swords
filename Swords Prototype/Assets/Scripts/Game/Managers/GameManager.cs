@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     #endregion
 
     public static PlayerController player;
-    public static string nextLevelName;
+    public static string sceneName;
     private FadeImage fadeScreen;
     private void Awake()
     {
@@ -66,13 +66,13 @@ public class GameManager : MonoBehaviour
 
     #region Level Management
 
-    public void LevelComplete()
+    public void LoadLevel()
     {
-        currentGameState = GameState.LevelCompleted;
+        currentGameState = GameState.Loading;
         fadeScreen.Fade(FadeImage.FadeMode.Show);
     }
 
-    public void GoToNextLevel() => StartCoroutine(AsyncLoadLevel(nextLevelName));
+    public void GoToLevel() => StartCoroutine(AsyncLoadLevel(sceneName));
 
     public IEnumerator AsyncLoadLevel(string levelName)
     {

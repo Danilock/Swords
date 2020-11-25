@@ -60,7 +60,7 @@ public class EnemyIA : MonoBehaviour
     /// </summary>
     public void MoveEnemy()
     {
-        if (mCurrentState == CurrentState.isStopped || Vector2.Distance(detectedTarget.transform.position, transform.position) < reachDistance)
+        if (mCurrentState == CurrentState.isStopped || Vector2.Distance(detectedTarget.transform.position, transform.position) < reachDistance || enemy.currentState == enemy.deadState)
             return;
         mCurrentState = CurrentState.followingTarget;
         direction = Mathf.Sign(detectedTarget.transform.position.x - transform.position.x);
@@ -95,6 +95,13 @@ public class EnemyIA : MonoBehaviour
     public void Jump()
     {
         ch2D.Move(direction, false, true);
+    }
+
+    public void StopEnemy()
+    {
+        mCurrentState = CurrentState.isStopped;
+        direction = 0f;
+        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
     }
 
     private void OnDrawGizmos()

@@ -5,7 +5,9 @@ public class EnemyDeadState : EnemyBaseState
 {
     public override void EnterState(EnemyController enemy)
     {
-
+        enemy.enemyAnimator.SetBool("Attack", false);
+        enemy.enemyAnimator.SetBool("Walking", false);
+        enemy.enemyAnimator.SetBool("Dead", true);
     }
 
     public override void ExitState(EnemyController enemy)

@@ -6,7 +6,7 @@ using UnityEngine.Events;
 public class LerpMovement : MonoBehaviour
 {
     #region Events
-    [SerializeField] UnityEvent OnReachEndPosition, OnStartMoving;
+    [SerializeField] UnityEvent OnReachEndPosition, OnStartMoving, OnReturned;
     #endregion
     #region Lerp Behaviour
     Vector2 startPosition, endPosition, onLevelStartPosition;
