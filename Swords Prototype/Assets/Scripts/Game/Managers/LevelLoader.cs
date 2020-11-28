@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(BoxCollider2D))]
 public class LevelLoader : MonoBehaviour
 {
     [SerializeField] string nextLevel;
@@ -20,6 +19,6 @@ public class LevelLoader : MonoBehaviour
     public void LoadLevel()
     {
         GameManager.sceneName = nextLevel;
-        FindObjectOfType<GameManager>().LoadLevel();
+        FindObjectOfType<GameManager>().DoFadeAndSetLoadingState();
     }
 }

@@ -38,16 +38,15 @@ public class Trap : MonoBehaviour
     /// Desactivate a trap for certain time.
     /// </summary>
     /// <param name="time"></param>
-    public void DesactivateTrapCallback(float time)
-    {
-        StartCoroutine(DesactivateByTime(time));
-    }
+    public void DesactivateTrapCallback(float time) => StartCoroutine(DesactivateByTime(time));
 
     IEnumerator DesactivateByTime(float timeToActicate)
     {
-        SetupDesactivating();
+        SetupDesactivating();//Desactivating the trap
         yield return new WaitForSeconds(timeToActicate);
-        trapCollider.enabled = true;
+
+        #region Reactivating the trap
+        trapCollider.enabled = true; // Set trap collider to true
         if (hasAnimation)
         {
             if (inParent)
@@ -61,6 +60,7 @@ public class Trap : MonoBehaviour
                 trapAnimator.SetBool("hideTrap", false);
             }
         }
+        #endregion
     }
 
     /// <summary>
@@ -89,10 +89,7 @@ public class Trap : MonoBehaviour
         }
     }
 
-    void DestroyTrap()
-    {
-        Destroy(gameObject);
-    }
+    void DestroyTrap() => Destroy(gameObject);
 
     #region Physics
     private void OnTriggerEnter2D(Collider2D collision)

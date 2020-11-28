@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: BloodHound
   m_EditorClassIdentifier: 
   name: BloodHound
-  baseHealth: 60
+  baseHealth: 30
   baseDamage: 10
   attackCooldown: 1.3

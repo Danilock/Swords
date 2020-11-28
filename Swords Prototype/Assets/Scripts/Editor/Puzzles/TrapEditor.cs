@@ -8,6 +8,7 @@ using UnityEditor.Build.Content;
 public class TrapEditor : Editor
 {
     SerializedProperty hasAnimation, destroyWhenDesactivate, canPushPlayer, trapDamage, force, inParent, parent;
+    bool animatorAdded;
     private void OnEnable()
     {
         hasAnimation = serializedObject.FindProperty("hasAnimation");
@@ -30,6 +31,7 @@ public class TrapEditor : Editor
         {
             AddOrRemoveAnimator(false);
             EditorGUILayout.PropertyField(destroyWhenDesactivate);
+            destroyWhenDesactivate.boolValue = false;
         }
         else
         {
@@ -51,14 +53,18 @@ public class TrapEditor : Editor
 
     void AddOrRemoveAnimator(bool add)
     {
+        if (animatorAdded)
+            return;
         var t = (target as Trap);
         if (add)
         {
             t.gameObject.AddComponent<Animator>();
+            animatorAdded = true;
         }
         else
         {
             DestroyImmediate(t.GetComponent<Animator>());
+            animatorAdded = false;
         }
     }
 }

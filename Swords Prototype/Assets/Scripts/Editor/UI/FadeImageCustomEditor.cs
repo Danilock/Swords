@@ -7,7 +7,7 @@ using UnityEngine.UI;
 [CustomEditor(typeof(FadeImage))]
 public class FadeImageCustomEditor : Editor
 {
-    SerializedProperty imageToFade, canvasToFade, target, fadeSpeed, fadeMode, onFadeShow, onFadeHide;
+    SerializedProperty imageToFade, canvasToFade, target, fadeSpeed, fadeMode, onFadeShow, onFadeHide, changeColorsOnEditor;
     private void OnEnable()
     {
         imageToFade = serializedObject.FindProperty("imageToFade");
@@ -17,6 +17,7 @@ public class FadeImageCustomEditor : Editor
         fadeSpeed = serializedObject.FindProperty("fadeSpeed");
         onFadeShow = serializedObject.FindProperty("onFadeShow");
         onFadeHide = serializedObject.FindProperty("onFadeHide");
+        changeColorsOnEditor = serializedObject.FindProperty("changeColorsOnEditor");
     }
 
     public override void OnInspectorGUI()
@@ -32,28 +33,45 @@ public class FadeImageCustomEditor : Editor
         switch (fadeMode.enumValueIndex)
         {
             case 0:
-                ImageAlphaColor(true);
                 EditorGUILayout.PropertyField(onFadeShow);
+                if(changeColorsOnEditor.boolValue == true)
+                    ImageAlphaColor(true);
                 break;
             case 1:
-                ImageAlphaColor(false);
                 EditorGUILayout.PropertyField(onFadeHide);
+                if(changeColorsOnEditor.boolValue == true)
+                    ImageAlphaColor(false);
                 break;
         }
-        
 
+
+        EditorGUILayout.PropertyField(changeColorsOnEditor);
         serializedObject.ApplyModifiedProperties();
     }
 
     void ImageAlphaColor(bool showOrHide)
     {
-        if (imageToFade.objectReferenceValue == null)
-            return;
-        var currentImage = (Image) imageToFade.objectReferenceValue;
+        if (target.enumValueIndex == 0)
+        {
+            if (imageToFade.objectReferenceValue == null)
+                return;
+            var currentImage = (Image)imageToFade.objectReferenceValue;
 
-        Color currentColor = currentImage.color;
-        currentColor.a = showOrHide ? 0 : 1;
+            Color currentColor = currentImage.color;
+            currentColor.a = showOrHide ? 0 : 1;
 
-        currentImage.color = currentColor;
+            currentImage.color = currentColor;
+        }
+        else if(target.enumValueIndex == 1)
+        {
+            if (canvasToFade.objectReferenceValue == null)
+                return;
+            var currentCanvas = (CanvasGroup) canvasToFade.objectReferenceValue;
+
+            float currentColor = currentCanvas.alpha;
+            currentColor = showOrHide ? 0 : 1;
+
+            currentCanvas.alpha = currentColor;
+        }
     }
 }

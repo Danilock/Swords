@@ -116,7 +116,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stopMovementLayers:
     serializedVersion: 2
-    m_Bits: 131072
+    m_Bits: 393216
   wallLineOffset: {x: 0, y: -0.15, z: 0}
   ch2D: {fileID: 0}
   horizontalMove: 0

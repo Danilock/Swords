@@ -15,6 +15,7 @@ public class FadeImage : MonoBehaviour
     enum FadeSpeed { Low = 1, Normal = 3, Fast = 5}
     [SerializeField] FadeSpeed fadeSpeed = FadeSpeed.Normal;
     [SerializeField] UnityEvent onFadeShow, onFadeHide;
+    [SerializeField] bool changeColorsOnEditor = true;
     float fadeOperation;
     bool fade;
 
@@ -22,7 +23,7 @@ public class FadeImage : MonoBehaviour
 
     private void Start()
     {
-        if(imageToFade == null && (target == Target.image || target == Target.both))
+        if(imageToFade == null && target == Target.image)
         {
             Debug.LogError("Select an Image To FADE");
         }

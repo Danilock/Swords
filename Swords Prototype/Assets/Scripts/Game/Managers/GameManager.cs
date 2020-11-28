@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
 
     public static PlayerController player;
     public static string sceneName;
+    public static Vector2 checkPoint;
     private FadeImage fadeScreen;
     private void Awake()
     {
@@ -66,7 +67,7 @@ public class GameManager : MonoBehaviour
 
     #region Level Management
 
-    public void LoadLevel()
+    public void DoFadeAndSetLoadingState()
     {
         currentGameState = GameState.Loading;
         fadeScreen.Fade(FadeImage.FadeMode.Show);

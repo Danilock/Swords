@@ -108,6 +108,7 @@ public class DraggableObject : MonoBehaviour
                 lerpMovement.Move(completeTargetArea.transform);
                 currentState = dragableObjectState.DragCompleted;
                 canInteract = false;
+                gameObject.layer = LayerMask.NameToLayer("Environment");
                 player.SetState(player.idleState);
                 return;
             }
@@ -135,7 +136,7 @@ public class DraggableObject : MonoBehaviour
     
     private void OnMouseEnter()
     {
-        if(!canInteract)
+        if(!canInteract || player.currentState == player.attackState)
             return;
         player.SetState(player.controllingState); //Set the player state to controlling so he can't move/attack.
     }
@@ -151,7 +152,12 @@ public class DraggableObject : MonoBehaviour
     {
         GameObject newTargetArea = new GameObject(gameObject.name + " target area");
         newTargetArea.transform.position = transform.position;
+        newTargetArea.layer = LayerMask.NameToLayer("No Ground");
+
         BoxCollider2D newTargetAreaCollider = newTargetArea.AddComponent<BoxCollider2D>();
+        SpriteRenderer newTargetSprite = newTargetArea.AddComponent<SpriteRenderer>();
+        newTargetSprite.sprite = GetComponent<SpriteRenderer>().sprite;
+        newTargetSprite.sortingLayerID = GetComponent<SpriteRenderer>().sortingLayerID;
         
         newTargetAreaCollider.isTrigger = true;
         newTargetAreaCollider.size = new Vector2(.5f, .5f);

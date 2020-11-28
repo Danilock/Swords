@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Box Enemy
   m_EditorClassIdentifier: 
   name: Box Enemy
-  baseHealth: 100
+  baseHealth: 50
   baseDamage: 5
   attackCooldown: 0

@@ -8,6 +8,8 @@ public class InteractableObject : MonoBehaviour
 {
     [SerializeField] bool canBeReactivated;
     [SerializeField] float timeToReactivate = 2f;
+    [SerializeField] GameObject UIcanvas;
+    Animator interactiveObjectAnimator;
 
     #region Events
     [SerializeField] UnityEvent OnInteractWithPlayer;
@@ -25,6 +27,12 @@ public class InteractableObject : MonoBehaviour
     public bool CanInteract { get { return canInteract; } set { canInteract = value; } }
     #endregion
     public float Interacting { get; private set; }
+
+    private void Start()
+    {
+        interactiveObjectAnimator = GetComponent<Animator>();
+    }
+
     private void Update()
     {
         if (Input.GetButton("Interact") && collidedWithPlayer && CanInteract)
@@ -38,7 +46,7 @@ public class InteractableObject : MonoBehaviour
                 {
                     StartCoroutine(Reactivate());
                 }
-
+                interactiveObjectAnimator?.SetBool("Interacted", true);
                 OnInteractWithPlayer.Invoke();
             }
 
@@ -62,6 +70,8 @@ public class InteractableObject : MonoBehaviour
     {
         yield return new WaitForSeconds(timeToReactivate);
         CanInteract = true;
+        interactiveObjectAnimator?.SetBool("Interacted", false);
+
     }
     #region Physics with player interactions
     private void OnTriggerEnter2D(Collider2D other)
@@ -69,6 +79,7 @@ public class InteractableObject : MonoBehaviour
         if(other.CompareTag("Player"))
         {
             collidedWithPlayer = true;
+            UIcanvas?.SetActive(true);
         }
     }
 
@@ -77,6 +88,7 @@ public class InteractableObject : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             collidedWithPlayer = false;
+            UIcanvas?.SetActive(false);
         }
     }
     #endregion
