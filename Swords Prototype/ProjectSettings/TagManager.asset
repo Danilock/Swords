@@ -12,6 +12,7 @@ TagManager:
   - Coin
   - Jumper
   - Draggable Object
+  - Checkpoint
   layers:
   - Default
   - TransparentFX
@@ -32,7 +33,7 @@ TagManager:
   - Platform
   - Environment
   - Ignore enemies
-  - 
+  - Checkpoint
   - 
   - 
   - 

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEditor;
+using UnityEngine.Audio;
 using UnityEngine.Events;
 public class EnemyController : MonoBehaviour
 {
@@ -17,7 +18,9 @@ public class EnemyController : MonoBehaviour
     #region Gameplay
     Rigidbody2D rgb2D;
     PlayerController player;
-    [HideInInspector] public Animator enemyAnimator; 
+    [HideInInspector] public Animator enemyAnimator;
+    Vector2 startPosition;
+    GameManager gm;
     #endregion
     #region FSM
     public EnemyNormalState normalState = new EnemyNormalState();
@@ -40,7 +43,12 @@ public class EnemyController : MonoBehaviour
         rgb2D = GetComponent<Rigidbody2D>();
         enemyAnimator = GetComponent<Animator>();
         player = FindObjectOfType<PlayerController>();
+
+        startPosition = transform.position;
+        gm = FindObjectOfType<GameManager>();
+        gm.OnLevelRestart.AddListener(RestartEnemyPosition);
     }
+
     private void Update()
     {
         currentState.Update(this);
@@ -85,6 +93,13 @@ public class EnemyController : MonoBehaviour
         Item instance = Instantiate(itemToDrop, transform.position, Quaternion.identity);
     }
 
+    void RestartEnemyPosition()
+    {
+        transform.position = startPosition;
+    }
+
+    public void ChangeLayer(string layerName) => gameObject.layer = LayerMask.NameToLayer(layerName);
+
     #region Set States
     public void SetEnemyState(EnemyBaseState newState)
     {
@@ -116,10 +131,7 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    public void SetNormalState()
-    {
-        SetEnemyState(normalState);
-    }
+    public void SetNormalState() => SetEnemyState(normalState);
     #endregion
 
     #region Stun

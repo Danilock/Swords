@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
     [HideInInspector] public float horizontalMove;
     [HideInInspector] public Rigidbody2D rgb2D;
     [HideInInspector] public PlayerAttackController attackController;
+    GameManager gm;
     #endregion
     #region Events
     [SerializeField] UnityEvent OnPlayerDead;
@@ -54,6 +55,7 @@ public class PlayerController : MonoBehaviour
         attackController = GetComponent<PlayerAttackController>();
         playerAnimator = GetComponent<Animator>();
         GameManager.player = this;
+        gm = FindObjectOfType<GameManager>();
         CurrentHealth = StartHealth;
 
         SetState(idleState);
@@ -80,6 +82,7 @@ public class PlayerController : MonoBehaviour
         if (CurrentHealth <= 0f)
         {
             OnPlayerDead?.Invoke();
+            gm.PlayerLoose();
             SetState(deadState);
         }
         else

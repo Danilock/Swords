@@ -149,7 +149,7 @@ MonoBehaviour:
   m_AirControl: 1
   m_WhatIsGround:
     serializedVersion: 2
-    m_Bits: 203543
+    m_Bits: 203539
   m_GroundCheck: {fileID: 5835738442550374372}
   m_CeilingCheck: {fileID: 5835738442328416593}
   m_CrouchDisableCollider: {fileID: 0}
@@ -173,7 +173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackAreaPosition: {fileID: 5835738443329184709}
-  attackAreaSize: {x: 0.5, y: 0.5}
+  attackAreaSize: {x: 0.62, y: 0.68}
   arrowPrefab: {fileID: 6747743560750345741, guid: 85110ee2c4327534eb7b1c8285e94678,
     type: 3}
   arrowPoint: {fileID: 5835738443258011757}
@@ -199,7 +199,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 240847ba91bbc5049bd7283968c1bfb9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -357,7 +357,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5835738443329184730}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.381, y: 0.03, z: 0}
+  m_LocalPosition: {x: 0.283, y: 0.03, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5835738442557339760}

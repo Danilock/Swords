@@ -23,7 +23,6 @@ public class EnemyAttack : MonoBehaviour
         player = FindObjectOfType<PlayerController>();
         enemy = GetComponent<EnemyController>();
         attackCooldown = enemy.enemyProfile.attackCooldown;
-        Debug.Log(attackCooldown);
     }
 
     /// <summary>
@@ -47,6 +46,10 @@ public class EnemyAttack : MonoBehaviour
         {
             player.TakeDamage(enemy.enemyProfile.baseDamage);
         }
+    }
+
+    public void PutAttackOnCooldown()
+    {
         canAttack = false;
         StartCoroutine(AttackCooldown());
     }

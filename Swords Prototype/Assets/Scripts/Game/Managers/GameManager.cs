@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour
 {
@@ -15,11 +16,12 @@ public class GameManager : MonoBehaviour
     public enum GameState { Paused, InGame, InMenu, Loading, LevelCompleted }
     public static GameState currentGameState { get; private set; }
     #endregion
-
+    public UnityEvent OnLevelRestart;
+    static Animator gameManagerAnimator;
     public static PlayerController player;
     public static string sceneName;
     public static Vector2 checkPoint;
-    private FadeImage fadeScreen;
+    SoundManager sound;
     private void Awake()
     {
         #region Initializing GameManager Singleton
@@ -30,11 +32,12 @@ public class GameManager : MonoBehaviour
         else
         {
             _instance = this;
+            gameManagerAnimator = GetComponent<Animator>();
+            sound = FindObjectOfType<SoundManager>();
             DontDestroyOnLoad(this);
         }
         #endregion
         currentGameState = GameState.InGame;
-        fadeScreen = GetComponentInChildren<FadeImage>();
     }
 
     private void Update()
@@ -70,7 +73,9 @@ public class GameManager : MonoBehaviour
     public void DoFadeAndSetLoadingState()
     {
         currentGameState = GameState.Loading;
-        fadeScreen.Fade(FadeImage.FadeMode.Show);
+        OnLevelRestart.RemoveAllListeners();
+        gameManagerAnimator.SetBool("LoadLevel", true);
+        sound?.FadeSound(true);
     }
 
     public void GoToLevel() => StartCoroutine(AsyncLoadLevel(sceneName));
@@ -83,12 +88,24 @@ public class GameManager : MonoBehaviour
         {
             yield return null;
         }
-
-        fadeScreen.Fade(FadeImage.FadeMode.Hide);
+        gameManagerAnimator.SetBool("LoadLevel", false);
+        sound?.FadeSound(false);
     }
 
     
     #endregion
+
+    public void PlayerLoose() => gameManagerAnimator.SetBool("RestartLevel", true);
+
+    public void RestartLevel()
+    {
+        player.transform.position = checkPoint;
+        player.SetLife(player.StartHealth / 2);
+        player.SetIdleState();
+        player.playerAnimator.SetBool("Dead", false);
+        OnLevelRestart.Invoke();
+        gameManagerAnimator.SetBool("RestartLevel", false);
+    }
 
     private void OnApplicationFocus(bool focus)
     {

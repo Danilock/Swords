@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Mooshroom
+  m_Controller: {fileID: 9100000, guid: c84014a299260b4418ca3089aac028b4, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: dc42ce816b020c54b975b86aab1750d1, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: acf9947af4d7d874bb2740eb4a33b459, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: a298fbbcaa6b5d343a9ff5b50c646cd9, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: abe5439eb41cf64449a8c47a39b4152c, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 76ec587f2a9756e46b0f4a39abd6cc50, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 3c1060f1a4cf4c7498064e3845232f87, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: ebf430460dbeeee4ead3b5d5b980dc73, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: a66f6a3dfabe103449bdd93920f84f98, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: da12fbbab7b6c284e8d2676aa349fd04, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 555d580918936e64ea804d5c6ecc6e83, type: 2}

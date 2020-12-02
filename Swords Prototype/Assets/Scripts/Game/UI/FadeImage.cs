@@ -23,11 +23,7 @@ public class FadeImage : MonoBehaviour
 
     private void Start()
     {
-        if(imageToFade == null && target == Target.image)
-        {
-            Debug.LogError("Select an Image To FADE");
-        }
-        else if(imageToFade != null)
+        if(imageToFade != null)
         {
             currentImageColor = imageToFade.color;
         }

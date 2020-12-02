@@ -4,13 +4,22 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider2D))]
 public class CheckPoint : MonoBehaviour
 {
+    Animator checkpointAnimator;
     bool checkpointChecked = false;
+
+    private void Start()
+    {
+        checkpointAnimator = GetComponent<Animator>();
+    }
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player") && !checkpointChecked)
         {
             GameManager.checkPoint = transform.position;
+            checkpointAnimator?.SetTrigger("Reached");
+            checkpointChecked = true;
         }
     }
 }

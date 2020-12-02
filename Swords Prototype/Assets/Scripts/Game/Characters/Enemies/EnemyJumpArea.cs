@@ -29,7 +29,9 @@ public class EnemyJumpArea : MonoBehaviour
         
         Gizmos.color = Color.green * 0.5f;
         Gizmos.DrawSphere(transform.position + new Vector3(circleCollider.offset.x, circleCollider.offset.y ,0f), circleCollider.radius);
-        
+
+    #if UNITY_EDITOR	
         Handles.Label(transform.position, "Jumper:" + gameObject.name);
+    #endif
     }
 }

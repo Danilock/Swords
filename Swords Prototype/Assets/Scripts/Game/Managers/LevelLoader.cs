@@ -18,6 +18,8 @@ public class LevelLoader : MonoBehaviour
 
     public void LoadLevel()
     {
+        if (GameManager.currentGameState == GameManager.GameState.Loading)
+            return;
         GameManager.sceneName = nextLevel;
         FindObjectOfType<GameManager>().DoFadeAndSetLoadingState();
     }
